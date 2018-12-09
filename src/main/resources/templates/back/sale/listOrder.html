@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('订单管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/sales.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_order_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">所有订单</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%">
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" type="button" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_order_list_table">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>状态</th>
+                <th>金额</th>
+                <th>数量</th>
+                <th>买家名称</th>
+                <th>创建时间</th>
+                <th>发货</th>
+                <th>查看</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="order in orders">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=order.id :value=order.id name="orderCheckbox">
+                        <label :for=order.id></label>
+                    </div>
+                </td>
+                <td>{{order.id}}</td>
+                <td><span class="label" :class="order.status=='type_success'?'label-success':order.status=='type_fail'?'label-danger':'label-warning'">
+                    {{order.status | statusFilter}}</span></td>
+                <td>￥{{order.sum | formatMoneyFilter}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.user.name}}</td>
+                <td>{{order.createDate | formatDateFilter}}</td>
+                <td class="deliveryButton"><button :disabled="order.status!='type_waitDelivery'"  :class="{gray:order.status!='type_waitDelivery'}" @click="delivery(order.id)"><i class="fa fa-send"></i></button></td>
+                <td class="deliveryButton"><button :disabled="order.status=='type_waitExchange'||order.status=='type_waitRefund'||order.status=='type_waitRejected'"
+                                                   :class="{gray:order.status=='type_waitExchange'||order.status=='type_waitRefund'||order.status=='type_waitRejected'}"
+                                                   @click="seeOrder(order.id)"><i class="fa fa-eye"></i></button></td>
+                <td><a href="#no" @click="deleteOrder(order.id)"><i class="fa fa-trash"></i></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('订单')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','订单')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/order.js}"></script>
+</body>

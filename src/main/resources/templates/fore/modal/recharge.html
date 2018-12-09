@@ -1,0 +1,72 @@
+<div th:fragment="html" class="container">
+    <div id="rechargeModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="rechargeModel"
+         aria-hidden="true">
+        <div class="modal-dialog rechargeModelDialog">
+            <div class="modal-content rechargeModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">账户充值</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="exchangeDiv">
+                        <form id="rechargeForm" onsubmit="return false;" @submit="rechargeButton">
+                            <table id="rechargeTable">
+                                <tr>
+                                    <td>充值方式：</td>
+                                    <td>
+                                        <div class="radio radio-danger radio-inline">
+                                            <input type="radio" id="inlineRadio1" value="type_waitRefund" checked>
+                                            <label for="inlineRadio1">在线充值</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>充值金额：</td>
+                                    <td><input type="text" class="form-control validate[required,max[10000],min[1]]" v-model="money"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <table class="rechargeTable">
+                                            <thead>
+                                            <tr>
+                                                <th>单笔限额(元)</th>
+                                                <th>每日限额(元)</th>
+                                                <th>每月限额(元)</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1万</td>
+                                                <td>1万</td>
+                                                <td>无</td>
+                                            </tr>
+                                            </tbody>
+
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>确认密码:</b></td>
+                                    <td><input type="password" class="form-control" v-model="password"></td>
+                                    <td><a href="#no">忘记密码？</a></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-info" type="submit" style="width: 70%">确认充值</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

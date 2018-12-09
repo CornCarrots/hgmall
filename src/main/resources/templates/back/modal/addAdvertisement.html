@@ -1,0 +1,65 @@
+<div th:fragment="html" class="container">
+    <div id="addAdvertisementModel" class="modal fade" tabindex="-1" role="dialog"
+         aria-labelledby="addAdvertisementModel"
+         aria-hidden="true">
+        <div class="modal-dialog addAdvertisementModelDialog">
+            <div class="modal-content addAdvertisementModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加广告</h4>
+                </div>
+                <form id="addForm" onsubmit="return false;" @submit="addAdvertisement_">
+                    <div class="modal-body">
+                        <div class="back_carousel_edit">
+                            <table>
+                                <tr>
+                                    <td>广告图片：</td>
+                                    <td>
+                                        <input accept="image/*" type="file" name="image"
+                                               class="form-control validate[required]"
+                                               @change="setFile($event)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>广告类型：</td>
+                                    <td>
+                                        <div class="dropdown bootstrap-select">
+                                            <select class="selectpicker  validate[required]" id="addSelect"
+                                                    data-style="btn-success"
+                                                    tabindex="-98" v-model="addAdvertisement.type"></select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>广告状态：</td>
+                                    <td>
+                                        <div>
+                                            <div class="radio radio-info radio-inline">
+                                                <input type="radio" id="inlineRadio3" value="1"
+                                                       v-model="addAdvertisement.status">
+                                                <label for="inlineRadio3">启用</label>
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="inlineRadio4" value="0"
+                                                       v-model="addAdvertisement.status">
+                                                <label for="inlineRadio4">禁用</label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-default" type="submit">提交</button>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+</div>

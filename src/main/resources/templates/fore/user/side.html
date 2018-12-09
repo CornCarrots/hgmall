@@ -1,0 +1,7 @@
+<div class="userLeft pull-left" th:fragment="html">
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" :class="{'active':type == 'account'}"><a th:href="@{/account}">账户设置</a></li>
+        <li role="presentation" :class="{'active':type == 'user'}"><a :href="getUser()">个人资料</a></li>
+        <li role="presentation"><a th:href="@{/member}">个人成长信息</a></li>
+    </ul>
+</div>

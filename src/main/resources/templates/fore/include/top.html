@@ -1,0 +1,71 @@
+<header th:fragment="html" xmlns:th="http://www.thymeleaf.org">
+    <div class="top_adv">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div th:each="adv,status:${application.advertisements}"
+                     th:class="${status.index==0?'active item':'item'}">
+                    <img th:src="@{'/image/advertisement_home/'+${adv.id}+'.jpg'}" th:alt="'carousel'+${adv.id}">
+                </div>
+            </div>
+        </div>
+        <button class="close closeButton">
+            <i class="fa fa-close fa-2x"></i>
+        </button>
+
+    </div>
+    <nav class="top">
+        <span class="pull-left">
+            <a th:href="@{/home}"><span class="fa fa-home"></span>零号商城首页</a>
+            <span>欢迎来到零号商城</span>
+            <span th:if="${session.user==null}">
+                <a th:href="@{/login}">请登录</a>
+                <a th:href="@{/register}">免费注册</a>
+            </span>
+            <span th:if="${session.user!=null}">
+                <a th:href="@{/account}" th:text="${session.user.nickName}"></a>
+                <a th:href="@{/logout}">退出</a>
+            </span>
+
+        </span>
+        <span class="pull-right" style="font-size: 1.2em;">
+            <a href="#no"><i class="fa fa-wechat" style="color: green"></i></a>
+            <a href="#no"><i class="fa fa-qq" style="color: blue"></i></a>
+            <a href="#no"><i class="fa fa-weibo"></i></a>
+            <a th:href="@{/help}">帮助中心</a>
+            <a th:href="@{/message}">联系我们</a>
+            <a th:href="@{/view}">留言反馈</a>
+        </span>
+        <div class="clearfix"></div>
+        <div class="search">
+            <a th:href="@{/home}"><img th:src="@{/image/site/logo.png}" alt="logo"></a>
+            <div class="mysearch">
+                <div class="input-group">
+                    <div class="dropdown bootstrap-select input-group-btn">
+                        <select class="selectpicker" data-style="btn-default" tabindex="-98" id="categorySelect">
+                            <option th:each="cat:${application.categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                        </select>
+                    </div>
+                    <input class="form-control" type="text" placeholder="搜索你想要的商品" name="keyword" id="keyword">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default searchButton" type="button" id="search">
+                        <i class="fa fa-search" style="color:gray;"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="searchBelow">
+            <span th:each="cat,status:${application.categories_below}">
+                   <span class="searchSpan" th:text="${cat.name}"></span>
+                    <span class="searchSpan" th:if="${status.index!=((status.size)-1)}">|</span>
+            </span>
+
+                </div>
+            </div>
+            <div>
+                <a th:href="@{/account}"><span class="graySpan"><i class="fa fa-user fa-2x"></i><p>个人中心</p></span></a>
+                <a th:href="@{/orderList}"><span><i class="fa fa-history fa-2x"></i><p>订单历史</p></span></a>
+                <a th:href="@{/shoppingcart}"><span><i class="fa fa-shopping-bag fa-2x"></i><i id="shoppingNumber" th:text="${session.shoppingCart}"></i><p>购物车</p></span></a>
+            </div>
+        </div>
+    </nav>
+</header>

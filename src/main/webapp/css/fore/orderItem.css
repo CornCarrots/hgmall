@@ -1,0 +1,161 @@
+.balanceHead ,.balanceOrder{
+    width: 80%;
+    margin: 20px auto;
+    font-size: 12px;
+}
+.balanceHead_info p,.balanceOrder p{
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+.balanceHead_info .balanceHead_infoT{
+    margin-left: 20px;
+}
+.balanceHead_info .balanceHead_infoT td{
+    padding: 5px 20px 5px 5px;
+    vertical-align: top;
+}
+.balanceHead_info .balanceHead_infoT textarea{
+    resize: none;
+}
+.balanceHead_info .balanceHead_infoT input{
+    width: 60%;
+}
+.balanceHead_infoAlarm{
+    color: red;
+}
+ .balanceOrder_myorderTable1{
+    margin: 40px 0 0 0;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 2px;
+    /*border-bottom: 2px solid #31b0d5;*/
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2{
+    /*margin: 10px 0;*/
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    /*border-spacing: 10px;*/
+    /*border-bottom: 2px solid #b4d0ff;*/
+}
+.balanceOrder_myorderTable1 thead tr th {
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+    border-bottom: 3px solid #bcd0ff;
+
+}
+.balanceOrder_myorderTable2 .myorder_img{
+    width: 7%;
+}
+.balanceOrder_myorderTable3{
+    width: 100%;
+    margin: 10px 20px;
+}
+.balanceOrder_myorderTable3 a{
+    color: #999999;
+}
+.balanceOrder_myorderTable3 a:hover{
+    color: #fa5555;
+}
+.balanceOrder_myorderTable2 .myorder_name{
+    width: 49%;
+}
+.myorderTitle_price,.myorderTitle_sum,.myorder_price,.myorder_sum{
+    width: 7%;
+}
+.balanceOrder_myorder .myorderTitle_number,.myorder_number{
+    width: 5%;
+}
+.balanceOrder_myorder .myorderTitle_style{
+    width: 25%;
+}
+.hasAuthenticate{
+    color: orange;
+}
+.notHasAuthenticate{
+    color: gray;
+}
+.balanceOrder_myorder ,.myorderTitle_store a{
+    color: black;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 tbody td{
+    padding: 11px 0;
+    text-align: center;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 tbody .myorder_img img{
+    width: 50px;
+    height: 50px;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 .myorder_img,.balanceOrder_myorder .balanceOrder_myorderTable2  .myorder_name{
+    text-align: left;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 .myorder_name .myorder_name_title{
+    color: #999;
+    display: block;
+    /*margin-bottom:20px;*/
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 .myorder_name .myorder_name_title a{
+    color: #3c3c3c;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 .myorder_name .myorder_name_title a:hover{
+    color: #C40000;
+    text-decoration: underline;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 .myorder_sum{
+    color: #C40000;
+    font-weight: bold;
+}
+.balanceOrder_myorder .balanceOrder_myorderTable2 .myorder_style select{
+    height: 23px;
+    width: 100px;
+}
+.balanceOrder_myorderTable2 .myorder_name,.balanceOrder_myorderTable2 .myorder_price,.balanceOrder_myorderTable2 .myorder_number,.myorder_sum{
+    border-bottom: #e5e5e5 1px solid;
+}
+.balanceOrder_myinfo{
+    width: 100%;
+    /*display: table-cell;*/
+    position: relative;
+    margin-bottom: 30px;
+    height: 50px;
+    padding: 10px;
+    background-color: #F2F6FF;
+    color: #999999;
+    /*vertical-align: top;*/
+}
+.balanceOrder_myinfo span{
+    position: absolute;
+    bottom: 10px;
+}
+.balanceOrder_myinfo .balanceOrder_myinfoRight{
+
+    right: 10px;
+}
+.balanceOrder_myprice span{
+    color: #999999;
+}
+.balanceOrder_myprice .balanceOrder_myprice_price{
+    margin: 0 40px 0 3px;
+    color: #C40000;
+    font-size: 23px;
+    font-weight: bold;
+}
+.balanceOrder_mysend{
+    margin: 10px;
+}
+.balanceOrder_mysend button{
+    border: 0px;
+    width: 180px;
+    height: 40px;
+    background-color: #C40000;
+    color: white;
+    font-size: 14px;
+}
+textarea.leaveMessage{
+    resize: none;
+}

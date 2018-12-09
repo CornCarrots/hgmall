@@ -1,0 +1,47 @@
+.back_option_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+
+.back_settion_list_table{
+    margin: 20px auto;
+    width: 80%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    text-align: center;
+}
+.back_option_list_table{
+    margin: 10px;
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_option_list_table thead{
+    background: #edf1f6;
+    text-align: center;
+}
+.back_option_list_table thead tr th{
+    text-align: center;
+}
+.back_option_list_table tbody tr td{
+    vertical-align: middle;
+}
+.myModule table thead tr th,.myOperation table thead tr th{
+    text-align: center;
+}
+.myModule table tbody tr td,.myOperation table tbody tr td{
+    vertical-align: middle;
+    text-align: center;
+}
+.addModule,.addOperation{
+    margin: 30px auto;
+}
+.addModule table,.addOperation table{
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.addModule table tr td:first-child,.addOperation table tr td:first-child{
+    text-align: right;
+}

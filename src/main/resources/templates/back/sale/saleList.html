@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('交易详情')"></head>
+<link rel="stylesheet" th:href="@{/css/back/sales.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+        <li class="active">交易详情</li>
+    </ol>
+    <div class="sales_info">
+        <div class="sales_info_block">
+            <div id="sales_info_block_user" class="sales_info_icon"><i class="fa fa-rmb fa-3x"></i></div>
+            <div class="sales_info_content">
+                <p>交易金额</p>
+                <h1>{{order.totalSum}}</h1>
+            </div>
+        </div>
+        <div class="sales_info_block">
+            <div id="sales_info_block_distribution" class="sales_info_icon"><i class="fa fa-shopping-cart fa-3x"></i></div>
+            <div class="sales_info_content">
+                <p>订单数量</p>
+                <h1>{{order.totalQuantity}}</h1>
+            </div>
+        </div>
+        <div class="sales_info_block">
+            <div id="sales_info_block_order" class="sales_info_icon"><i class="fa fa-shopping-bag fa-3x"></i></div>
+            <div class="sales_info_content">
+                <p>交易成功</p>
+                <h1>{{order.totalSuccess}}</h1>
+            </div>
+        </div>
+        <div class="sales_info_block">
+            <div id="sales_info_block_transaction" class="sales_info_icon"><i class="fa fa-shopping-basket fa-3x"></i></div>
+            <div class="sales_info_content">
+                <p>交易失败</p>
+                <h1>{{order.totalFail}}</h1>
+            </div>
+        </div>
+    </div>
+    <div id="chartDIV" style="width: 1000px;height:400px;"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/echart/echarts.min.js}"></script>
+<script th:src="@{/js/back/saleList.js}"></script>
+</body>

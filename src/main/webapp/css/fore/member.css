@@ -1,0 +1,140 @@
+.member_info{
+    float: left;
+    width: 500px;
+    height: 445px;
+    margin: 30px 0 30px 120px;
+    padding: 50px 30px;
+    background-color: #2f3245;
+    color: white;
+    font-size: 14px;
+    border-top-left-radius: 10%;
+}
+.member_info .member_info_title{
+    margin: 15px 0;
+}
+.member_info .member_info_name{
+    font-size: 16px;
+    color: white;
+}
+
+.member_info a{
+    color: white;
+}
+.member_info .member_info_name a:hover{
+    color: #fa5555;
+ }
+.member_info i{
+    color: white;
+}
+.member_info i:hover{
+     color: #fa5555;
+ }
+.member_info img{
+    float: left;
+    width: 50px;
+    height:50px;
+    border-radius: 30%;
+    margin:0 10px 0 0;
+}
+.member_info_plus{
+    margin-left: 10px;
+}
+.member_info_bar{
+    width: 80%;
+    margin-left: 78px;
+}
+.member_info_right div{
+    display: inline-block;
+    margin-right: 25px;
+    text-align: center;
+}
+.member_lunbo{
+    float: left;
+    margin: 30px 0;
+    /*width: 300px;*/
+}
+.member_info_score p{
+    display: flex;
+    align-items: center;
+}
+.member_info_score p i{
+    width: 30px;
+    margin-right: 10px;
+}
+.member_info_score p i:hover{
+    color: white;
+}
+.member_title{
+    width: 100%;
+    text-align: center;
+    line-height: 7px;
+    padding: 20px;
+}
+.member_title .line{
+    float: left;
+    width: 45%;
+    height: 2px;
+    background-color: #2f3245;
+}
+.member_title .dot{
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    border-radius: 100%;
+    background-color: #2f3245;
+}
+.member_title .text{
+    float: left;
+    width: 5%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2f3245;
+}
+.member_right {
+    width: 85%;
+    margin: 10px auto;
+}
+.member_right table{
+    border-collapse: separate;
+    border-spacing: 30px;
+}
+.member_right .media-rightBorder{
+    width: 250px;
+    height: 250px;
+    padding: 25px;
+}
+.yellowBorder{
+    background-color: #f8d347;
+
+}
+.blueBorder{
+    background-color: #6ccac9;
+}
+.redBorder{
+    background-color: #ff6c60;
+}
+.greenBorder{
+    background-color: #57c8f2;
+}
+.member_right .media-rightDIV{
+    width: 200px;
+    height: 200px;
+    padding: 30px 10px;
+    background-color: white;
+    border: 1px solid #ebebeb;
+    text-align: center;
+}
+.member_right .media-rightDIV span{
+    color: #888888;
+    font-size: 14px;
+}
+.member_right .media-rightDIV .separate{
+    width: 30px;
+    height: 5px;
+    margin: 10px auto;
+    background-color: #2f3245;
+}
+.member_right .media-rightDIV button{
+    border-radius: 30px;
+}

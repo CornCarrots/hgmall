@@ -1,0 +1,19 @@
+<template th:fragment="html(title)" xmlns:th="http://www.thymeleaf.org">
+    <link th:href="@{/css/include/bootstrap/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/include/awesome/font-awesome.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+    <link th:href="@{/css/fore/include.css}" rel="stylesheet">
+
+    <script th:src="@{/js/include/jquery/jquery.min.js}"></script>
+    <script th:src="@{/js/include/bootstrap/bootstrap.js}"></script>
+    <script th:src="@{/js/include/dropdown/bootstrap-hover-dropdown.min.js}"></script>
+    <script th:src="@{/js/include/select/bootstrap-select.min.js}"></script>
+    <script th:src="@{/js/include/vue/vue.min.js}"></script>
+    <script th:src="@{/js/include/axios/axios.min.js}"></script>
+    <script th:src="@{/js/include/vue/moment.js}"></script>
+    <script th:src="@{/js/include/group/jquery.goup.min.js}"></script>
+    <script th:src="@{/js/fore/include.js}"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title th:text="${title}" ></title>
+</template>

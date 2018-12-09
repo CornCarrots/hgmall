@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('用户管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/product.css}">
+<link rel="stylesheet" th:href="@{/css/back/user.css}">
+
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_user_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">积分管理</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%">
+            <button class="btn btn-warning" @click="addButton"><i class="fa fa-plus"> 增加等级</i></button>
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model.lazy="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_user_list_table">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>积分</th>
+                <th>会员等级</th>
+                <th>会员标志</th>
+                <th>权限</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="score in scores">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=score.id :value=score.id name="scoreCheckbox">
+                        <label :for=score.id></label>
+                    </div>
+                </td>
+                <td>{{score.id}}</td>
+                <td>{{score.min}}-{{score.max}}</td>
+                <td>{{score.name}}</td>
+                <td><i class="fa fa-superpowers" :style="{color:score.icon}"></i></td>
+                <td><a href="#no" @click="power(score.id)"><span class="fa fa-gear"></span></a></td>
+                <td><a href="#no" @click="editMember_(score.id)"><span class="fa fa-edit"></span></a></td>
+                <td><a href="#no" @click="deleteMember_(score.id)"><span class="fa fa-trash"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('积分')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','积分')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/addScore::html"></div>
+    <div th:replace="back/modal/editScore::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/score.js}"></script>
+</body>

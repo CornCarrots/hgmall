@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('个人主页')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/manager.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_person_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">个人资料</li>
+        </ol>
+        <div class="imgDIV">
+            <img th:src="@{'/image/profile_manager/'+${session.manager.id}+'.jpg'}" alt="profile_manager" width="200px">
+            <p>
+                <span>
+                   <label for="uploadFile" class=" btn btn-info">
+                    <i class="fa fa-plus"></i>
+                    上传图片
+                   </label>
+                    <input id="uploadFile" name="image" type="file" accept="image/*" style="display:none" @change="setImage($event)"/>
+                </span>
+
+                <span style="display: none" id="confirmButton">
+                    <button class="btn btn-success" @click="upload">确定</button>
+                    <button class="btn btn-default" @click="cancelUpload">取消</button>
+                </span>
+
+            </p>
+        </div>
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td>
+                    <span>{{manager.name}}</span>
+                    <span><input type="text" class="form-control" v-model="manager.name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>
+                    <span>*******</span>
+                    <span><input type="text" class="form-control" v-model="manager.password"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>昵称：</td>
+                <td>
+                    <span>{{manager.nickName}}</span>
+                    <span><input type="text" class="form-control" v-model="manager.nickName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <span>{{manager.sex | sexFilter}}</span>
+                    <span>
+                        <div id="radioButton">
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" id="inlineRadio1" value="0" name="radioInline" v-model="manager.sex">
+                            <label for="inlineRadio1">男</label>
+                        </div>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" id="inlineRadio2" value="1" name="radioInline" v-model="manager.sex">
+                            <label for="inlineRadio2">女</label>
+                        </div>
+                    </div>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>联系方式：</td>
+                <td>
+                    <span>{{manager.mobile}}</span>
+                    <span><input type="text" class="form-control" v-model="manager.mobile"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>电子邮箱：</td>
+                <td>
+                    <span>{{manager.email}}</span>
+                    <span><input type="text" class="form-control" v-model="manager.email"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>权限：</td>
+                <td>
+                    <p v-for="role in manager.roles">
+                        {{role.desc}}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>注册时间：</td>
+                <td>{{manager.createDate | formatDateFilter }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-info" id="modifyButton">修改信息</button>
+                    <span>
+                        <button class="btn btn-success" id="saveButton" @click="update">保存修改</button>
+                        <button class="btn btn-default" id="cancelButton" @click="cancel">取消</button>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/person.js}"></script>
+</body>

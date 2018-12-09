@@ -1,0 +1,52 @@
+<div class="product_detailAndAccess" th:fragment="html">
+    <div class="product_detail">
+        <div class="product_nav">
+            <div class="product_navTitle redNavTitle"><a href="#no">商品详情</a></div>
+            <div class="product_navComment1 noRedNavTitle"><a href="#no">累计评价 <span class="product_detail_navNum">{{product.reviews}}</span></a></div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="product_detail_info">
+            <div class="product_detail_infoTitle">产品参数：</div>
+            <table>
+                <tbody>
+                <tr v-for="property,i in properties">
+                    <td v-for="pro,j in property">
+                        {{pro.name}}: {{propertyValues[i+j].value}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="product_detail_img">
+            <img v-for="img in product.productDetailImages" :src="getImage('productDetail',img.id)" alt="" width="790px">
+        </div>
+    </div>
+    <div class="product_access" style="display: none">
+        <div class="product_nav">
+            <div class="product_navTitle noRedNavTitle"><a href="#no">商品详情</a></div>
+            <div class="product_navComment2 redNavTitle"><a href="#no">累计评价 <span class="product_detail_navNum">{{product.reviews}}</span></a></div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="product_access_comment">
+            <div class="product_access_text" v-for="review in product.reviewList">
+                <div class="access_text">
+                    {{review.content}}
+                </div>
+                <div class="access_author">
+                    {{review.user.name |anonyNameFilter}} <span class="access_author_noname">（匿名）</span>
+                </div>
+                <div class="clear"></div>
+                <div class="access_time">
+                    {{review.createDate | formatDateFilter}}
+                </div>
+            </div>
+        </div>
+        <div class="product_access_comment404">
+            <div class="product_access_text">
+                <div class="access_text404">
+                    还没有人评论呢，快来当第一个评论的人吧！
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

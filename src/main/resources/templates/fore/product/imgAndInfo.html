@@ -1,0 +1,68 @@
+<div class="product_ImgAndInfo" th:fragment="html">
+    <div class="product_Img">
+        <div class="productImg_big">
+            <img v-if="product.firstProductImage!=undefined" :src="getImage('productSingle',product.firstProductImage.id)" width="358px" height="358px" alt="'img'+product.id">
+        </div>
+        <div class="productImg_small">
+            <img v-for="img in product.productSingleImages" :src="getImage('productSingle_small',img.id)" :alt="'smallImg'+img.id" :imgID="img.id">
+        </div>
+    </div>
+    <div class="product_Info">
+        <div class="product_Info_title"><b>{{product.name}}</b></div>
+        <div class="product_Info_smallTitle">
+            <span  v-for="text in subTitle">{{text}}</span>
+        </div>
+        <div style="color: #999;font-size: 12px;margin: 10px">
+            所属店铺：<a :href="getStore(product.store.id)"><i class="fa fa-tv"></i>{{product.store.name}}</a>
+        </div>
+        <div class="product_Info_paying">
+            <span class="paying_title">聚划算</span>
+            <span>此商品即将参加聚划算，</span>
+            <span class="paying_time">{{payDate}}</span>
+            <span>后开始</span>
+        </div>
+        <div class="product_Info_price">
+            <p class="product_Info_price1">
+                <span class="price1_title">价格</span>
+                <span class="price1_price">￥{{product.originalPrice | formatMoneyFilter}}</span>
+            </p>
+            <p class="product_Info_price2">
+                <span class="price2_title">促销价</span>
+                <span class="price2_price">￥{{product.promotePrice | formatMoneyFilter}} </span>
+            </p>
+        </div>
+        <div class="product_Info_saleAndAssign">
+            <span class="product_Info_sale">
+              <span class="product_Info_saleTitle">销量</span>
+              <span class="product_Info_saleNum">{{product.sales}}</span>
+            </span>
+            <span class="product_Info_assign">
+                <span class="product_Info_assignTitle">累计评价</span>
+                <span class="product_Info_assignNum">{{product.reviews}}</span>
+             </span>
+        </div>
+        <div class="product_Info_numberAndStock">
+            <span>数量</span>
+            <span  class="product_Info_number1" id="number"><input type="text" v-model.number="number" @change="setNumber"></span>
+            <span>
+                    <a href="#no"><span class="product_Info_number2 " id="numberUp" @click="up"> <img th:src="@{/image/site/increase.png}" alt=""></span></a>
+                    <a href="#no"> <span class="product_Info_number2" id="numberDown" @click="down"> <img th:src="@{/image/site/decrease.png}" alt=""></span></a>
+            </span>
+            <span>件 库存</span>
+            <span class="product_Info_stock" id="maxNumber">{{product.stock}}</span>
+            <span>件</span>
+        </div>
+        <div class="product_Info_acceptance">
+            <span>服务承诺</span>
+            <a href="#no">正品保证</a>
+            <a href="#no">极速退款</a>
+            <a href="#no">赠运费险</a>
+            <a href="#no">七天无理由退换</a>
+        </div>
+        <div class="product_Info_buyAndShop">
+            <button class="product_Info_buy" @click="buyProduct">立即购买</button>
+            <button class="product_Info_shop" @click="addCart($event)"><i class="fa fa-cart-plus fa-2x" style="color: white"></i> 加入购物车</button>
+        </div>
+    </div>
+    <!--<div class="clear"></div>-->
+</div>

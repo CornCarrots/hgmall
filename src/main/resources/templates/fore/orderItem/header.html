@@ -1,0 +1,70 @@
+<div class="balanceHead" th:fragment="html">
+    <div class="balanceHead_img">
+        <img th:src="@{/image/site/buyflow.png}" alt="buyflow">
+    </div>
+    <!--<div style="clear: both"></div>-->
+    <div class="balanceHead_info">
+        <p>输入收货地址</p>
+        <div class="balanceHead_infoT">
+            <table>
+                <tr>
+                    <td>
+                        <label for="address" class="balanceHead_infoAdd">收货地址</label><span class="balanceHead_infoAlarm">*</span>
+                    </td>
+                    <td>
+                        <div class="form-inline">
+                            <div data-toggle="distpicker" id="distpicker">
+                                <div class="form-group">
+                                    <label class="sr-only" for="province">省</label>
+                                    <select data-province="---- 选择省 ----" id="province" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="city">市</label>
+                                    <select data-city="---- 选择市 ----" id="city" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="district">区</label>
+                                    <select data-district="---- 选择区 ----" id="district" class="form-control"></select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                            <textarea id="address" cols="80" rows="2" class="form-control validate[required,minSize[6],maxSize[30]]"
+                                      placeholder="建议您如实填写详细收货地址，例如接到名称，门牌号码，楼层和房间号等信息" v-model="order.address"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email" class="balanceHead_infoEmail">邮政编码</label>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="如果您不清楚邮递区号，请填写000000" id="email" class="form-control validate[required,custom[chinaZip]]" v-model="order.post">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="name" class="balanceHead_infoName">收货人姓名</label><span class="balanceHead_infoAlarm">*</span>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="长度不超过25个字符" id="name" class="form-control validate[required,maxSize[25]]" v-model="order.receiver">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone" class="balanceHead_infoPhone">手机号码</label><span class="balanceHead_infoAlarm">*</span>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="请输入11位手机号码" id="phone" class="form-control validate[required,custom[phone]]" v-model="order.mobile">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="view" th:fragment="html">
+    <h1>用户反馈问卷</h1>
+    <h4>亲爱的用户，请您将使用网站之后的意见和建议告诉我们，以便我们更好地改进产品，为您提供更好的服务。谢谢您的支持！</h4>
+    <table>
+        <tr>
+            <td>1:</td>
+            <td>
+                <h4>请先选择您的反馈类型</h4>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div>
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="inlineRadio1" value="type_complaint" v-model="message.type">
+                        <label for="inlineRadio1">意见</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <input type="radio" id="inlineRadio2" value="type_suggestion" v-model="message.type">
+                        <label for="inlineRadio2">建议</label>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2:</td>
+            <td>
+                <h4>您在使用当前网站时，遇到的任何问题、意见或建议，请告诉我们。（请填写）</h4>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <textarea maxlength="200" class="form-control" id="addMessage" cols="50" rows="10" v-model="message.text"></textarea>
+                <p v-if="message.text">剩余字数：<span style="color: red">{{200-message.text.length}}</span>字</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-success btn-block btn-lg" @click="sendButton" id="sendButton">提交</button>
+            </td>
+        </tr>
+    </table>
+</div>

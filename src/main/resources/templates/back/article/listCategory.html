@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('文章分类管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/category.css}">
+<link rel="stylesheet" th:href="@{/css/back/article.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_art_category_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">所有分类</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%">
+            <button class="btn btn-warning" @click="addCategoryButton"><i class="fa fa-plus"> 增加分类</i></button>
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model.lazy="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" type="button" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_art_category_list_table">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>分类名称</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="cat in categories">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=cat.id :value=cat.id name="categoryCheckbox">
+                        <label :for=cat.id></label>
+                    </div>
+                </td>
+                <td>{{cat.id}}</td>
+                <td>{{cat.name}}</td>
+                <td><a href="#no" @click="editCategory(cat.id)"><span class="fa fa-edit"></span></a></td>
+                <td><a href="#no" @click="deleteCategory(cat.id)"><span class="fa fa-trash"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('分类')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','分类')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/addArtCategory::html"></div>
+    <div th:replace="back/modal/editArtCategory::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/article_category.js}"></script>
+</body>

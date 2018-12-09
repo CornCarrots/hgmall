@@ -1,0 +1,66 @@
+<div class="payment" th:fragment="html">
+    <div>
+        <h3>
+            您需要为
+            <span>{{num}}</span> 个订单支付
+            <span class="redSpan">{{sum}}</span> 元
+        </h3>
+        <table class="payTable table table-hover table-responsive">
+            <tr th:class="${session.user.mid==0?'falseTR':''}">
+                <td>
+                    <div class="radio">
+                        <input type="radio" id="inlineRadio1" value="1" v-model="style" th:disabled="${session.user.mid==0?'disabled':''}">
+                        <label for="inlineRadio1">
+                            <i class="fa fa-credit-card fa-2x"></i>
+                            <span>会员大王卡<span class="blueSpan">推荐</span></span>
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <div th:if="${session.user.mid==0}" v-model="style">
+                        <span class="graySpan">您还不是会员</span>
+                    </div>
+                    <div th:if="${session.user.mid!=0}">
+                        您只需支付：<span class="redSpan">￥{{discord|formatMoneyFilter}}</span>
+                    </div>
+                </td>
+            </tr>
+            <tr th:class="${session.user.account<session.sum?'falseTR':''}">
+                <td>
+                    <div class="radio">
+                        <input type="radio" id="inlineRadio2" value="2" v-model="style" th:disabled="${session.user.account<session.sum?'disabled':''}">
+                        <label for="inlineRadio2">
+                            <i class="fa fa-money fa-2x"></i>
+                            <span>账户余额<span th:text="|${session.user.account}元|"></span></span>
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <div th:if="${session.user.account<session.sum}">
+                        <span class="graySpan">余额不足，请先充值</span>
+                    </div>
+                    <div th:if="${session.user.account>=session.sum}">
+                        您需支付：<span class="redSpan">￥{{sum|formatMoneyFilter}}</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="payDIV">
+            <table>
+                <tr>
+                    <td><b>确认密码:</b></td>
+                    <td><input type="password" class="form-control" v-model="password"></td>
+                    <td><a href="#no" @click="forgetPass">忘记密码？</a></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn btn-info" @click="payOrder">确认付款</button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>

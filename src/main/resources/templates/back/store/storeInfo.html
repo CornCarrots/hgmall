@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('店铺管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/store.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_myStore_list">
+        <table>
+            <tr>
+                <td>店铺名：</td>
+                <td>
+                    <input type="text" class="form-control" v-model="store.name">
+                </td>
+            </tr>
+            <tr>
+                <td>店铺类型：</td>
+                <td>
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="inlineRadio1" value="type_private" v-model="store.type">
+                        <label for="inlineRadio1">个人店铺</label>
+                    </div>
+                    <div class="radio radio-inline">
+                        <input type="radio" id="inlineRadio2" value="type_business" v-model="store.type">
+                        <label for="inlineRadio2">商业店铺</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>店铺分类：</td>
+                <td>
+                    <div class="dropdown bootstrap-select">
+                        <select class="selectpicker" data-style="btn-success" tabindex="-98" id="select">
+                            <option v-for="option in categories"  :value="option.id" :selected="option.id==store.category.id">
+                                {{ option.name }}
+                            </option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>申请人：</td>
+                <td>{{store.applyName}}</td>
+            </tr>
+            <tr>
+                <td>申请时间：</td>
+                <td>{{store.applyDate | formatDateFilter}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-success" @click="updateStore">保存修改</button>
+                    <button class="btn btn-default" @click="reset">取消</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/storeInfo.js}"></script>
+</body>

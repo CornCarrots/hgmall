@@ -1,0 +1,187 @@
+.category{
+    /*width: 1013px;*/
+    margin: 10px auto;
+}
+.myCategory{
+    float: left;
+    margin-left: 30px;
+    width: 267px;
+}
+.myCategory .panel-body{
+    padding: 5px 0px;
+    text-align: left;
+}
+.myCategory .panel-body ul{
+    position: relative;
+    top: 0;
+    left: -20px;
+    font-size: 14px;
+}
+.myCategory .panel-body ul li{
+    margin: 10px 0;
+}
+.myCategory .panel-body i{
+    margin-right: 30px;
+}
+.productPanel ul li table{
+    border-spacing: 3px;
+    border-collapse: separate;
+    font-size: 12px;
+    text-align: left;
+}
+.productPanel img{
+    width: 100px;
+    margin-right: 10px;
+}
+.advertisingPanel img{
+    width: 270px;
+}
+
+.category_sortAndPrice{
+    width: 70%;
+    float: left;
+    border: 1px solid #ebebeb;
+    height: 50px;
+    margin-left: 20px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.category .category_sortAndPrice .category_mysort,.category .category_sortAndPrice .category_price{
+    display: inline;
+    padding: 7px;
+}
+.category .category_sortAndPrice .category_sort{
+    width: 20px;
+    border: 1px #CCC solid;
+    padding:3px 1px;
+    font-size: 12px;
+}
+.category .category_sortAndPrice .active{
+    background-color: #F1EDEC;
+}
+.category .category_sortAndPrice .category_price .category_sort{
+   padding: 3px 1px 1px 1px ;
+    vertical-align:middle;
+    color: #CCCCCC;
+}
+.category .category_sortAndPrice .category_sort  a{
+    margin: 1px;
+    color: #806F66;
+}.category .category_sortAndPrice .category_sort  a:hover{
+    color: #fa5555;
+}
+.category .category_sortAndPrice .category_price input{
+    width: 50px;
+    height: 20px;
+    border-width: 2px;
+}
+.clear{
+    clear: both;
+}
+.category_Product{
+    width: 80%;
+    float: left;
+    margin: 10px auto;
+    max-width: 1014px;
+}
+.category_Product .category_Product_list{
+    width: 100%;
+    padding: 0px 20px 40px 20px;
+}
+.category_Product .category_Product_list .category_Product_item{
+    width: 225px;
+    height: 322px;
+    float: left;
+    margin: 15px 7px;
+    border: white 3px solid;
+    background-color: white;
+}
+.category_Product .category_Product_list .category_Product_item .category_Product_border{
+    border: #eee 1px solid;
+    height: 100%;
+}
+.category_Product .category_Product_list .category_Product_item .category_Product_border:hover{
+    border: #C40000 1px solid;
+}
+.category_Product .category_Product_list .category_Product_item .category_Product_image{
+    margin: 5px 0;
+    width: 100%;
+    height: 190px;
+}
+.category_Product .category_Product_list .category_Product_item:hover{
+    border: #C40000 3px solid;
+}
+.category_Product .category_Product_list .category_Product_item .item_mytitle{
+    margin: 0 5px;
+}
+.category_Product .category_Product_list .category_Product_item .item_mystore{
+    margin: 5px 20px;
+}
+.category_Product .category_Product_list .category_Product_item .item_link{
+    color: #333;
+    font-size: 12px;
+}
+.category_Product .category_Product_list .category_Product_item .item_link:hover,.category_Product .category_Product_list .category_Product_item .item_smallLink:hover{
+    color: #C40000;
+}
+ .item_price{
+    padding-left: 4px;
+    color: #CC0000;
+    font-size: 12px;
+}
+.item_price1{
+    display: inline-block;
+    padding-left: 4px;
+    margin:10px 20px;
+    color: #CC0000;
+    font-size: 16px;
+}
+.category_Product .category_Product_list .category_Product_item .item_smallLink{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.category_Product_item table td{
+    border-left: 1px #EEE solid;
+    border-right: 1px #EEE solid;
+    border-top: 1px #EEE solid;
+    color: #999;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.category_Product_item table .item_mybought{
+    width: 100px;
+}
+.category_Product_item table .item_mycomment{
+    width: 100px;
+}
+.category_Product_item table .item_image{
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    padding:0;
+}
+.category_Product_item table .item_image:hover{
+    background-color: #fa5555;
+}
+.category_Product_item table .item_image i{
+    color: black;
+}
+.category_Product_item table .item_image i:hover{
+    color: white;
+}
+.category_Product_item table .item_bought{
+    color: #B57C5B;
+    font-weight: bold;
+}
+.category_Product_item table .item_comment{
+    color: #3388BB;
+    font-weight: bold;
+}

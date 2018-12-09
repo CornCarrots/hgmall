@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('系统管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/manager.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_manager_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">管理员列表</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%">
+            <button class="btn btn-warning" @click="addButton"><i class="fa fa-plus"> 增加管理员</i></button>
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model.lazy="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_manager_list_table">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>所属店铺</th>
+                <th>用户名</th>
+                <th>手机</th>
+                <th>邮箱</th>
+                <th>角色</th>
+                <th>加入时间</th>
+                <th>状态</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="man in managers">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=man.id :value=man.id name="managerCheckbox">
+                        <label :for=man.id></label>
+                    </div>
+                </td>
+                <td>{{man.id}}</td>
+                <td v-if="man.sid!=0">{{man.store.name}}</td>
+                <td v-if="man.sid==0">无</td>
+                <td>{{man.name}}</td>
+                <td>{{man.mobile}}</td>
+                <td>{{man.email}}</td>
+                <td>
+                    <p v-for="role in man.roles">{{role.desc}}</p>
+                </td>
+                <td>{{man.createDate | formatDateFilter}}</td>
+                <td><span class="label" :class="man.status==1?'label-success':'label-danger'">{{man.status | statusFilter}}</span>
+                </td>
+                <td><a href="#no" @click="editButton(man.id)"><span class="fa fa-edit"></span></a></td>
+                <td><a href="#no" @click="deleteButton(man.id)"><span class="fa fa-trash"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('管理员')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','管理员')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/addManager::html"></div>
+    <div th:replace="back/modal/editManager::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.min.js}"></script>
+<script th:src="@{/js/back/manager.js}"></script>
+</body>

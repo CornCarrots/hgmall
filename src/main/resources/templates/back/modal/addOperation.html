@@ -1,0 +1,44 @@
+<div th:fragment="html" class="container">
+    <div id="addOperationModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addOperationModel"
+         aria-hidden="true">
+        <div class="modal-dialog addOperationModelDialog">
+            <div class="modal-content addOperationModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加权限</h4>
+                </div>
+                <form id="addForm" onsubmit="return false;" @submit="addOperation_">
+
+                <div class="modal-body">
+                    <div class="addOperation">
+                        <table>
+                            <tr>
+                                <td>权限名称</td>
+                                <td>
+                                    <input type="text" placeholder="请输入权限名称"class="form-control validate[required]"
+                                           v-model="operation.name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>权限描述</td>
+                                <td>
+                                    <input type="text" placeholder="请输入权限描述"class="form-control validate[required]"
+                                           v-model="operation.desc">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal-footer" style="text-align: center">
+                    <button class="btn btn-success" type="submit">提交</button>
+                    <button data-dismiss="modal" class="btn btn-default addOperationModelNo" type="button">取消</button>
+                </div>
+                <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

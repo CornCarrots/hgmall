@@ -1,0 +1,95 @@
+<div class="confirm" th:fragment="html">
+    <div class="confirm_img">
+        <img th:src="@{/image/site/confirmPayFlow.png}" alt="confirmPayFlow">
+    </div>
+    <div class="confirm_time">
+        <span class="confirm_time1">{{order.createDate|formatDateFilter}}</span>
+        <span class="confirm_time2">{{order.payDate|formatDateFilter}}</span>
+        <span class="confirm_time3">{{order.deliveryDate|formatDateFilter}}</span>
+    </div>
+    <div class="confirm_info">
+        <p>
+            <b>我已收到货，同意付款</b>
+        </p>
+        <div class="confirm_infoTable">
+            <p>
+                订单信息
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <th class="confirm_infoTitle_object" colspan="2">宝贝</th>
+                    <th class="confirm_infoTitle_price">单价</th>
+                    <th class="confirm_infoTitle_number">数量</th>
+                    <th class="confirm_infoTitle_sum">商品总价</th>
+                    <th class="confirm_infoTitle_express">运费</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in order.orderItems">
+                        <td  class="confirm_infoTable_img">
+                            <img :src="getImage('productSingle_middle',item.product.firstProductImage.id)" alt="product">
+                        </td>
+                        <td class="confirm_infoTable_name">
+                            <a :href="getProduct(item.product.id)">{{item.product.name}}</a>
+                        </td>
+                        <td class="confirm_infoTable_price">
+                            ￥{{item.product.promotePrice |formatMoneyFilter}}
+                        </td>
+                        <td class="confirm_infoTable_number">
+                            {{item.number}}
+                        </td>
+                        <td class="confirm_infoTable_sum">
+                            ￥{{item.number*item.product.promotePrice |formatMoneyFilter}}
+                        </td>
+                        <td class="confirm_infoTable_express">
+                            快递 ：0.00
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pull-right confirm_infoPrice">
+                <span>
+                    实付款：<span class="confirm_myPrice">￥{{order.sum |formatMoneyFilter}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="confirm_order">
+        <table class="confirm_orderTable">
+            <tr>
+                <td class="confirm_orderTitle">订单编号：</td>
+                <td>{{order.orderCode}} </td>
+            </tr>
+            <tr>
+                <td class="confirm_orderTitle">卖家昵称：</td>
+                <td>{{order.store.name}} </td>
+            </tr>
+            <tr>
+                <td class="confirm_orderTitle">收货信息：</td>
+                <td>{{order.address|addressFilter}}，{{order.receiver}}， {{order.mobile}}，{{order.post}}</td>
+            </tr>
+            <tr>
+                <td class="confirm_orderTitle">成交时间：</td>
+                <td>{{order.createDate|formatDateFilter}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="confirm_orderAlarm">
+        <span>请收到货后，再确认收货！否则您可能钱货两空！</span>
+        <table>
+            <tr>
+                <td><b>确认密码:</b></td>
+                <td><input type="password" class="form-control" v-model="password"></td>
+                <td><a href="#no" @click="forgetPass">忘记密码？</a></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="btn btn-info" @click="confirm">确认支付</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

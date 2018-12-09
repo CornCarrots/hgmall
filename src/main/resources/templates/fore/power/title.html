@@ -1,0 +1,24 @@
+<div class="power_title" th:fragment="html">
+    <div>
+        <img th:src="@{/image/site/power_title_bg.png}" alt="power" height="290px" >
+        <div class="power_title_top">
+            <h3 style="height: 30px">{{power.title}}</h3>
+            <span class="label label-danger">{{member.min}}积分以上可享</span>
+            <!--<span class="label label-warning">plus会员</span>-->
+        </div>
+        <div class="power_title_bottom">
+            <h5>{{member.min}}-{{member.max}}积分可享<span class="redSpan">{{power.score}}积分</span></h5>
+            <button class="btn btn-danger" @click="exchange">立即兑换</button>
+            <p>累计兑换量： {{power.exchange}}人</p>
+        </div>
+        <div class="power_title_right">
+            <h3>
+                零号商城会员专享80余项顶级特权
+            </h3>
+            <h3>
+                覆盖零号功能游戏生活购物，让你不再是大多数！
+            </h3>
+        </div>
+    </div>
+
+</div>

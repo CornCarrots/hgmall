@@ -1,0 +1,386 @@
+.payment{
+    margin: -35px auto 0;
+    padding:3px 150px;
+    width: 100%;
+    height: 470px;
+    background-color: #eff0f1;
+}
+.payment>div{
+    height: 100%;
+    padding: 50px  0;
+    background-color: white;
+}
+.payment h3,.payment .payDIV{
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+.payment .payTable{
+    width: 80%;
+    margin: 20px auto;
+    font-size: 14px;
+}
+.payment .payTable tr td{
+    vertical-align: middle;
+}
+.payment .payTable tr td:first-child{
+    width: 70%;
+}
+.payment .payTable tr td:first-child label>span{
+    position: relative;
+    left: 10px;
+    top: -5px;
+}
+.payment .payDIV table{
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.payment .payDIV table button{
+    width: 50%;
+}
+.payment .redSpan{
+    font-size: 20px;
+    font-weight: bold;
+    color: #fa5555;
+}
+.payment .graySpan{
+    font-size: 14px;
+    color: #999;
+}
+.payment .blueSpan{
+    margin-left: 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #2b85e4;
+}
+.payment .falseTR{
+    cursor: not-allowed;
+}
+/*.payment .falseTR input{*/
+    /*cursor: not-allowed;*/
+/*}*/
+.orderBar,.orderObject{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.orderBar .orderBar_title{
+    margin: 20px 0;
+    padding: 5px;
+    border-bottom: 2px solid #e8e8e8;
+}
+.orderBar .orderBar_title span {
+    margin:5px;
+}
+.orderBar .orderBar_title span a{
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.orderBar .orderBar_title span  a:hover{
+    color: #C40000;
+    text-decoration: none;
+}
+.orderBar .orderBar_title .red_title a{
+    color: #C40000;
+    position: relative;
+}
+.orderBar .orderBar_title .red_title  a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 28px;
+    left: -10px;
+    width: 90px;
+    border: 1px solid #C40000;
+}
+.orderBar .orderBar_title .gray_title{
+    color: #e8e8e8;
+}
+.orderBar_smallTitle{
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    vertical-align: middle;
+    font-size: 12px;
+}
+.orderBar_smallTitle thead tr {
+    background-color: #f5f5f5;
+    height: 40px;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+}
+.orderBar_smallTitle thead td{
+    width: 10%;
+}
+.orderBar_smallTitle .orderBar_smallTitle_object{
+    width: 40%;
+}
+.orderObject_myobject{
+    border: 3px solid white;
+    margin-bottom: 20px;
+}
+.orderObject_myobject .orderObject_myobjectBorder{
+    border: 1px solid #e8e8e8;
+}
+.orderObject_myobject:hover{
+    border: 3px solid #999999;
+}
+.order404{
+    width: 50%;
+    margin: 80px auto;
+}
+.order404 .greenSpan{
+    color: orangered;
+}
+.order404 .registerButton{
+    width: 200px;
+    margin: 10px 50px;
+}
+.myobject_bar{
+    padding: 0;
+    margin-bottom: 20px ;
+}
+.orderObject_myobject table{
+    width: 100%;
+    font-size: 12px;
+}
+.orderObject_myobject table tr td{
+    padding: 10px;
+}
+.myobject_bar {
+    width: 100%;
+    background-color: #f5f5f5;
+    height: 40px;
+    /*border: 1px solid #e8e8e8;*/
+}
+.myobject_bar td{
+    width: 10%;
+}
+.myobject_bar .myobject_orderNumber{
+    width: 30%;
+}
+.myobject_bar .myobject_orderNumber .myobject_orderTime{
+    font-weight: bold;
+}
+.myobject_bar .myobject_orderNumber .myobject_orderNum{
+    margin: 20px;
+}
+.myobject_bar .myobject_orderDelete{
+    text-align: right;
+    padding-right: 20px;
+}
+.myobject_bar .myobject_orderDelete a{
+    margin: 10px;
+}
+.myobject_object td{
+    border-right: 1px solid #e8e8e8; width: 10% ;
+}
+.myobject_object .myobject_objectImg{
+    width: 10%;
+}
+.myobject_object .myobject_objectImg img{
+    width: 80px;
+    height: 80px;
+}
+.myobject_object .myobject_objectName{
+    width: 37%;
+}
+.myobject_object .myobject_objectName .myobject_objectTitle{
+    display: block;
+    margin-bottom:30px;
+}
+.myobject_object .myobject_objectName .myobject_objectTitle a{
+    color: #3c3c3c;
+}
+.myobject_object .myobject_objectName .myobject_objectTitle a:hover{
+    color: #C40000;
+    text-decoration: underline;
+}
+.myobject_object .myobject_objectName .myobject_objectTitle{
+    text-align: left;
+}
+.myobject_object  .myobject_objectPrice .myobject_objectOrign{
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+.myobject_object  .myobject_objectPrice .myobject_objectNow{
+    font-size: 14px;
+}
+.myobject_object .myobject_objectAccount .myobject_objectNowAccount{
+    display: block;
+    /*margin-bottom: 30px;*/
+    font-size: 14px;
+    font-weight: bold;
+}
+.myobject_objectPrice , .myobject_objectNum , .myobject_objectAccount ,.myobject_objectModify {
+    text-align: center;
+}
+
+.exchangeModelDialog{
+    width: 700px;
+}
+.exchangeModelDialog table{
+    width: 95%;
+    margin: 25px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.exchangeModelDialog table tr td:first-child{
+    text-align: right;
+}
+
+.confirm{
+    width: 70%;
+    margin:20px auto;
+}
+.confirm .confirm_img{
+    margin:0 20px;
+}
+.confirm .confirm_time{
+    margin: 20px 0;
+    color: #999999;
+    font-size: 12px;
+    position: relative;
+}
+
+.confirm .confirm_time  .confirm_time1{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.confirm .confirm_time  .confirm_time2{
+    position: absolute;
+    left: 208px;
+    top: 0;
+}
+.confirm .confirm_time  .confirm_time3{
+    position: absolute;
+    left: 414px;
+    top: 0;
+}
+.confirm .confirm_info{
+    margin-top: 45px;
+}
+.confirm .confirm_info p b{
+    font-size: 16px;
+}
+.confirm .confirm_infoTable{
+    margin-top: 20px;
+    border-top: 1px solid #ADC8E6;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.confirm .confirm_infoTable table{
+    width: 100%;
+    table-layout: auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px solid #DDDDDD;
+
+}
+
+.confirm .confirm_infoTable table thead tr{
+    width: 100%;
+    height: 20px;
+    background-color: #E8F2FF;
+
+}
+.confirm .confirm_infoTable table thead tr th{
+    width: 13%;
+    text-align: center;
+}
+.confirm .confirm_infoTable .confirm_infoTitle_object {
+    width:48%;
+}
+.confirm .confirm_infoTable table tbody td{
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+}
+.confirm .confirm_infoTable table tbody tr .confirm_infoTable_img img{
+    width: 50px;
+    height: 50px;
+}
+.confirm .confirm_infoTable .confirm_infoTable_img,.confirm .confirm_infoTable .confirm_infoTable_name{
+    text-align: left;
+}
+.confirm .confirm_infoTable table tbody tr .confirm_infoTable_name a{
+    color: #999;
+}
+.confirm .confirm_infoTable table tbody tr .confirm_infoTable_name a:hover{
+    color: #C40000;
+}
+.confirm .confirm_infoTable table tbody tr .confirm_infoTable_sum{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+.confirm_infoPrice{
+    margin: 10px 20px;
+}
+.confirm_infoPrice .confirm_myPrice{
+    font-size: 20px;
+    color: #C40000;
+}
+.confirm_order{
+    margin: 10px 25px;
+    padding-top: 5px;
+    border-top: 1px solid #DDDDDD;
+}
+.confirm_order .confirm_orderTable{
+
+    table-layout: auto;
+    text-align: left;
+    /*margin-left: 30px;*/
+    font-size: 14px;
+    color: black;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.confirm_order .confirm_orderTitle{
+    width: 25%;
+}
+.confirm_orderAlarm{
+    margin-top:20px;
+    border: 1px solid #F58B0F;
+    padding: 20px 60px;
+}
+.confirm_orderAlarm span{
+    display: block;
+    margin-bottom: 30px;
+    color: red;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 18px;
+}
+.confirm_orderAlarm  table{
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.confirm_orderAlarm table button{
+    width: 50%;
+}
+.confirm_success{
+    border: 1px solid #E5E5E5;
+    padding: 40px;
+    color: black;
+}
+.confirm_success img{
+    margin:0 20px 0 30px;
+}
+
+.logisticsModalDialog{
+    width: 70%;
+    height: 80%;
+}
+.logisticsModalContent{
+    height: 100%;
+}
+.logisticsDiv #notLogistics{
+    color: #fa5555;
+    margin: 120px auto;
+    width: 70%;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('权限管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/manager.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_role_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">角色列表</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%">
+            <button class="btn btn-warning" @click="addButton"><i class="fa fa-plus"> 增加角色</i></button>
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model.lazy="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_role_list_table">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>角色名称</th>
+                <th>人数</th>
+                <th>用户名称</th>
+                <th>角色描述</th>
+                <th>权限</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="role in roles">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=role.id :value=role.id name="roleCheckbox">
+                        <label :for=role.id></label>
+                    </div>
+                </td>
+                <td>{{role.id}}</td>
+                <td>{{role.name}}</td>
+                <td>{{role.managers.length}}</td>
+                <td v-if="role.managers.length != 0">
+                    <p v-for="man in role.managers">{{man.nickName}}</p>
+                </td>
+                <td v-if="role.managers.length == 0">
+                    无
+                </td>
+                <td>{{role.desc}}</td>
+                <td><a href="#no" @click="permission(role.id)"><span class="fa fa-gear"></span></a></td>
+                <td><a href="#no" @click="editRole(role.id)"><span class="fa fa-edit"></span></a></td>
+                <td><a href="#no" @click="deleteRole(role.id)"><span class="fa fa-trash"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('角色')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','角色')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/addRole::html"></div>
+    <div th:replace="back/modal/editRole::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/role.js}"></script>
+</body>

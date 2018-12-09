@@ -1,0 +1,56 @@
+<div th:fragment="html" class="container">
+    <div id="editCarouselModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editCarouselModel"
+         aria-hidden="true">
+        <div class="modal-dialog editCarouselModelDialog">
+            <div class="modal-content editCarouselModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">编辑轮播图</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="back_carousel_edit">
+                        <table>
+                            <tr>
+                                <td><label for="select">轮播图顺序：</label></td>
+                                <td>
+                                    <div class="dropdown bootstrap-select">
+                                        <select class="selectpicker" data-style="btn-success" tabindex="-98" id="select" v-model="editCarousel.role">
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="carousel_img">轮播图图片：</label></td>
+                                <td>
+                                    <input id="carousel_img" accept="image/*" type="file" name="image" @change="setFile($event)" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="radioButton">轮播图状态：</label></td>
+                                <td>
+                                    <div id="radioButton" >
+                                        <div class="radio radio-info radio-inline">
+                                            <input type="radio" id="inlineRadio1" value="1" v-model="editCarousel.status">
+                                            <label for="inlineRadio1">启用</label>
+                                        </div>
+                                        <div class="radio radio-inline">
+                                            <input type="radio" id="inlineRadio2" value="0" v-model="editCarousel.status">
+                                            <label for="inlineRadio2">禁用</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-default" @click="updateCarousel(editCarousel.id)">提交</button>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('消息管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/message.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_message_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">留言列表</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%">
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model.lazy="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_message_list_table">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>留言时间</th>
+                <th width="47%">留言内容</th>
+                <th>查看</th>
+                <th>状态</th>
+                <th>操作</th>
+                <th>回复</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <a name="msg"></a>
+            <tr v-for="msg in messages">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=msg.id :value=msg.id name="messageCheckBox">
+                        <label :for=msg.id></label>
+                    </div>
+                </td>
+                <td>{{msg.id}}</td>
+                <td>{{msg.user.name}}</td>
+                <td>{{msg.createDate | formatDateFilter}}</td>
+                <td v-if="msg.text.length>40">{{msg.text | subStringFilter(0,40) }}......</td>
+                <td v-if="msg.text.length<=40">{{msg.text}}</td>
+                <td><a href="#no" @click="detailButton(msg.id)"><span class="fa fa-eye"></span></a></td>
+                <td><span class="label" :class="msg.status==0?'label-success':'label-danger'">{{msg.status | statusFilter}}</span></td>
+                <td v-if="msg.status==0" @click="unCheckButton(msg.id)"><a href="#no"><span class="fa fa-close"></span></a></td>
+                <td v-if="msg.status==1" @click="checkButton(msg.id)"><a href="#no"><span class="fa fa-check"></span></a></td>
+                <td><a href="#no" @click="replyButton(msg.id)"><span class="fa fa-envelope"></span></a></td>
+                <td><a href="#no" @click="deleteButton(msg.id)"><span class="fa fa-trash"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('留言')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','留言')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/getMessage::html"></div>
+    <div th:replace="back/modal/replyMessage::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/message.js}"></script>
+</body>

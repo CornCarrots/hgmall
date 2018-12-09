@@ -1,0 +1,18 @@
+<div class="accessText_text" th:fragment="html">
+    <div class="product_access_comment">
+            <div class="product_access_text" v-for="review in reviews">
+                <div class="access_text">
+                   {{review.content}}
+                </div>
+                <div class="access_author">
+                   {{review.user.name |anonyNameFilter}}
+                    <span class="access_author_noname">（匿名）</span>
+                </div>
+                <div class="clear"></div>
+                <div class="access_time">
+                    {{review.createDate|formatDateFilter}}
+                </div>
+            </div>
+    </div>
+    <div></div>
+</div>

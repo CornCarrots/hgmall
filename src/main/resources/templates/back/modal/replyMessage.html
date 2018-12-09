@@ -1,0 +1,27 @@
+<div th:fragment="html" class="container">
+    <div id="messageReplyModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="messageReplyModel"
+         aria-hidden="true">
+        <div class="modal-dialog messageReplyModelDialog">
+            <div class="modal-content messageReplyModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">回复信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="messageReplyDIV">
+                        <textarea maxlength="200" class="form-control" id="messageReply" cols="50" rows="10" v-model="message.reply"></textarea>
+                        <p v-if="message.reply.length">剩余字数：<span style="color: red">{{200-message.reply.length}}</span>字</p>
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button class="btn btn-default" @click="updateButton(message.id)">发送</button>
+                    <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

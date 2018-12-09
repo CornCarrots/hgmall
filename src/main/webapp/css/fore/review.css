@@ -1,0 +1,159 @@
+.access{
+    width: 80%;
+    margin: 20px auto;
+}
+.accessProduct{
+    border-top: 1px solid #E7E7E7;
+}
+.accessProduct_img{
+    padding: 15px 30px;
+    border:1px solid #E7E7E7;
+}
+.accessProduct_img img{
+    width: 400px;
+    height: 400px;
+}
+.accessProduct_info{
+    margin: 30px 60px;
+}
+.accessProduct_info .accessProduct_info_title{
+    font-size: 16px;
+    font-family: Arial;
+}
+.accessProduct_info .accessProduct_info_table{
+    width: 100%;
+    table-layout: auto;
+    font-size: 12px;
+    color: #999999;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.accessProduct_info .accessProduct_info_table .accessProduct_info_thead{
+    width: 20%;
+    height: 10%;
+}
+.accessProduct_info .accessProduct_info_table .accessProduct_info_price{
+    font-size: 20px;
+    color: #C40000;
+    font-weight: bold;
+}
+.accessProduct_info .accessProduct_info_table .accessProduct_info_num{
+    font-size: 15px;
+    color: #C40000;
+    font-weight: bold;
+}
+.accessProduct_info_tip{
+    position: relative;
+    width: 100%;
+    height: 200%;
+    background-color: #FDFBFA;
+    padding: 20px 60px 100px 60px;
+    margin: 30px 0;
+    font-size: 12px;
+    /*vertical-align: top;*/
+}
+.accessProduct_info_tip img{
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 23px;
+    height: 42px;
+    border: 1px solid #E1E1E1;
+}
+.accessProduct_info_tip span{
+    display: inline-block;
+    width: 200px;
+    height: 42px;
+    padding: 3px 0;
+    /*line-height: 20px;*/
+    text-align: center;
+    border: 1px solid #e5e5e5;
+}
+.accessText_head{
+    width: 100%;
+    height: 40px;
+    /*vertical-align: middle;*/
+    /*padding: 10px;*/
+    /*line-height: 20px;*/
+    border: 1px solid #D5D4D4;
+    background-color: #F6F5F1;
+}
+.accessText_head_red{
+    position: relative;
+    display: inline-block;
+    width: 17%;
+    /*text-align: center;*/
+    padding: 0 35px;
+    top:5px;
+    left: 10px;
+}
+.accessText_head_red:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    left: -11px;
+    border:2px solid #C40000;
+}
+.accessText_head_white {
+    position: relative;
+    display: inline-block;
+    width:86% ;
+    height: 37px;
+    top: -25px;
+    left: 152px;
+    background-color: white;
+    border-bottom:1px solid #D5D4D4 ;
+    border-left:1px solid #D5D4D4 ;
+}
+.accessText_number{
+    color: #284CA5;
+}
+.accessText_text{
+    margin: 20px 0;
+    padding: 20px 0;
+    background-color: #F6F5F1;
+    border: 1px solid #e5e5e5;
+}
+.accessText_title {
+    margin: 0 40px;
+}
+.accessText_text b{
+
+    font-size: 18px;
+}
+.accessText_table{
+    /*display: table;*/
+    /*vertical-align: middle;*/
+    margin: 20px 40px;
+    background-color: white;
+    width: 500px;
+    height: 140px;
+}
+.accessText_table span{
+    display: table-cell;
+    height: 140px;
+    vertical-align: middle;
+    text-align: center;
+}
+.accessText_table1{
+    /*width: 0%;*/
+    border-right: 1px solid #e5e5e5;
+    padding: 5px;
+}
+.accessText_table2{
+    padding: 10px;
+}
+.accessText_table span textarea{
+    /*width: 350px;*/
+    border: 0px;
+    resize: none;
+}
+.accessText_button{
+    height: 60px;
+    background-color: white;
+    text-align: center;
+    /*vertical-align: middle;*/
+    padding: 15px 0;
+    /*line-height: 10px;*/
+}

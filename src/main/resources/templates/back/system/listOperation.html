@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('系统管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/option.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="operation">
+        <div class="myOperation">
+            <ol class="breadcrumb">
+                <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+                <li class="active">所有权限</li>
+            </ol>
+            <div style="margin-bottom: 10px;width: 100%">
+                <button class="btn btn-warning" @click="addButton"><i class="fa fa-plus"> 增加权限</i></button>
+                <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+                <div id="search">
+                    <div class="input-group">
+                        <input class="form-control" type="text" v-model.lazy="key">
+                        <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-bordered table-hover  table-condensed back_operation_list_table">
+                <thead>
+                <tr>
+                    <th id="checkAllTH">
+                        <div class="checkbox checkbox-success checkbox-inline">
+                            <input type="checkbox" id="checkAll" value="">
+                            <label for="checkAll"></label>
+                        </div>
+                    </th>
+                    <th class="myOperation_id">id</th>
+                    <th class="myOperation_name">权限名称</th>
+                    <th class="myOperation_desc">权限描述</th>
+                    <th class="myOperation_edit">编辑</th>
+                    <th class="myOperation_edit">删除</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="ope in operations">
+                    <td class="checkOne">
+                        <div class="checkbox checkbox-success checkbox-inline">
+                            <input type="checkbox" :id=ope.id :value=ope.id name="operationCheckbox">
+                            <label :for=ope.id></label>
+                        </div>
+                    </td>
+                    <td>{{ope.id}}</td>
+                    <td>{{ope.name}}</td>
+                    <td>{{ope.desc}}</td>
+                    <td><a href="#no" @click="editOperation_(ope.id)"><i class="fa fa-edit"></i></a></td>
+                    <td><a href="#no" @click="deleteOperation_(ope.id)"><i class="fa fa-trash"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+        <div th:replace="back/include/404_list::html('权限')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','权限')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/addOperation::html"></div>
+    <div th:replace="back/modal/editOperation::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/operation.js}"></script>
+</body>

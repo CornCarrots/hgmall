@@ -1,0 +1,27 @@
+<div class="login" th:fragment="html">
+    <img :src="imgURL" alt="background">
+    <div class="loginDiv">
+        <h3>欢迎回来</h3>
+        <form id="loginForm" onsubmit="return false;" @submit="loginUser">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <input id="nameField" type="text" class="form-control  validate[required,custom[onlyLetterNumber,minSize[6],maxSize[10]]" placeholder="请输入您的用户名" v-model="user.name">
+                <span class="input-group-addon"><a href="#no" @click="cleanName"><i class="fa fa-close fa-fw"></i></a></span>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input id="passField" type="password" class="form-control validate[required,minSize[6],maxSize[20]] text-input" placeholder="请输入您的密码" v-model="user.password">
+                <span class="input-group-addon"><a href="#no" @click="togglePass"><i class="fa fa-eye fa-fw" id="seePass"></i></a></span>
+            </div>
+            <div class="graySpan">
+                <span class="pull-left"><a href="#no" @click="forgetPass">忘记密码</a></span>
+                <span class="pull-right">还没有账号？<a th:href="@{/register}">立即注册</a></span>
+                <span class="clearfix"></span>
+            </div>
+            <div>
+                <button class="btn btn-danger" style="width: 100%" type="submit">立即登录</button>
+            </div>
+        </form>
+    </div>
+
+</div>

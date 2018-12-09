@@ -1,0 +1,33 @@
+<div class="member" th:fragment="html">
+    <div class="clearfix"></div>
+    <div class="member_title">
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="text">会员福利</div>
+        <div class="dot"></div>
+        <div class="line"></div>
+    </div>
+    <div class="member_right">
+        <table>
+            <tr v-for="power in powers">
+                <td v-for="pow,i in power">
+                    <a :href="getPower(pow.id)"></a>
+                    <div class="media-rightBorder" :class="i==0?'yellowBorder':i==1?'blueBorder':i==2?'redBorder':'greenBorder'">
+                        <div class="media-rightDIV">
+                            <h4 style="height: 36px">
+                                <b>{{pow.title}}</b>
+                            </h4>
+                            <p>
+                                <span>{{pow.score}}积分可兑换</span>
+                            </p>
+                            <div class="separate"></div>
+                            <p>
+                                <button class="btn btn-default" @click="toPower(pow.id)">使用积分兑换</button>
+                            </p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/exception/404.css}">
+<body>
+<div class="main">
+    <div class="header">
+        <h1>Fantasy error page</h1>
+    </div>
+    <div class="w3-main">
+        <div class="agile-info">
+            <h2>抱歉!</h2>
+            <h3>没有权限</h3>
+            <p>您没有权限访问此页面</p>
+            <a th:href="@{/admin}"><i class="fa fa-angle-double-left" aria-hidden="true"></i>返回首页</a>
+        </div>
+    </div>
+    <div class="footer-w3l">
+        <p>版权为galler所有</p>
+    </div>
+</div>
+<script th:src="@{/js/fore/help.js}" ></script>
+
+</body>

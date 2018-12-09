@@ -1,0 +1,109 @@
+<div th:fragment="html" class="container">
+    <div id="addManagerModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addManagerModel"
+         aria-hidden="true">
+        <div class="modal-dialog addManagerModelDialog">
+            <div class="modal-content addManagerModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加管理员</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="addManager">
+                        <table>
+                            <tr>
+                                <td>
+                                    用户名
+                                </td>
+                                <td>
+                                    <input style="width: 220px;" type="text" placeholder="请输入用户名称" class="form-control" v-model="manager.name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    昵称
+                                </td>
+                                <td>
+                                    <input style="width: 220px;" type="text" placeholder="请输入昵称" class="form-control" v-model="manager.nickName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    初始密码
+                                </td>
+                                <td>
+                                    <input style="width: 220px;" type="text" placeholder="请输入用户密码" class="form-control" v-model="manager.password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    确认密码
+                                </td>
+                                <td>
+                                    <input style="width: 220px;" type="text" placeholder="请再次输入密码" class="form-control" v-model="password">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    性别
+                                </td>
+                                <td>
+                                    <div class="radio radio-info radio-inline">
+                                        <input type="radio" id="inlineRadio1" value="0" v-model="manager.sex">
+                                        <label for="inlineRadio1">男</label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="inlineRadio2" value="1" v-model="manager.sex">
+                                        <label for="inlineRadio2">女</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    手机
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="请输入用户手机" v-model="manager.mobile">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    邮箱
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control"  placeholder="请输入用户邮箱地址" v-model="manager.email">
+                                </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td>所属店铺：</td>
+                                <td th:if="${session.manager!=null&&session.manager.sid!=0}" th:text="${session.manager.store.name}"></td>
+                                <td th:if="${session.manager!=null&&session.manager.sid==0}">无</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>
+                                    角色
+                                </td>
+                                <td>
+                                    <div class="dropdown bootstrap-select">
+                                        <select class="selectpicker" data-style="btn-success" tabindex="-98" id="addSelect"  v-model="rids" multiple>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal-footer" style="text-align: center">
+                    <button class="btn btn-success" @click="saveButton">提交</button>
+                    <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

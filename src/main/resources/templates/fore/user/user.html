@@ -1,0 +1,73 @@
+<div class="userRight pull-left" th:fragment="html">
+    <form id="modifyForm" onsubmit="return false;" @submit="modify" control="name">
+        <table class="userTable">
+            <thead>
+            <tr>
+                <th>基本资料</th>
+                <th>
+                    <label for="uploadFile" class=" btn btn-default">
+                        <i class="fa fa-picture-o">头像照片</i>
+                    </label>
+                    <input id="uploadFile" type="file" accept="image/*" style="display:none" @change="upload($event)"/>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>用户名：</td>
+                <td>
+                    <input id="name" type="text" name="name" class="form-control validate[required,custom[onlyLetterNumber],minSize[6],maxSize[10]]"
+                           :url="getUrl('/validate/user')" error="用户已存在" success="可以使用" placeholder="请输入您的用户名" v-model.trim="user.name">                </td>
+            </tr>
+            <tr>
+                <td>当前头像：</td>
+                <td>
+                    <img :src="getImage('profile_user',user.id)" alt="profile" id="photo" width="80px" height="80px">
+                </td>
+            </tr>
+            <tr>
+                <td>昵称：</td>
+                <td><input type="text" class="form-control validate[required,minSize[1],maxSize[10],custom[onlyLetterNumber]]" placeholder="请输入您的昵称" v-model.trim="user.nickName"></td>
+            </tr>
+
+            <tr>
+                <td>性别：</td>
+                <td >
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="inlineRadio1" value="0" v-model="user.sex">
+                        <label for="inlineRadio1">男</label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" id="inlineRadio2" value="1" v-model="user.sex">
+                        <label for="inlineRadio2">女</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>移动电话：</td>
+                <td><input type="text" class="form-control validate[required,custom[phone]]" placeholder="请输入您的移动电话" v-model.trim="user.mobile"></td>
+            </tr>
+            <tr>
+                <td>联系地址：</td>
+                <td><input type="text" class="form-control validate[required,custom[chinese]]" placeholder="请输入您的联系地址" v-model.trim="user.address"></td>
+            </tr>
+            <tr>
+                <td>个人邮箱：</td>
+                <td>
+                    <input class="form-control validate[required,custom[email]]" type="email" placeholder="请输入您的个人邮箱" v-model.trim="user.email">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-success" style="width: 40%" type="submit">修改</button>
+                    <button class="btn btn-default" style="width: 40%" @click="reset">重置</button>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </form>
+
+
+</div>

@@ -1,0 +1,81 @@
+<div class="shoppingCarInfo" th:fragment="html">
+    <div class="shoppingCarInfoRight">
+        已选商品(不含运费)：
+        <span class="shoppingCarInfoRight_price myShoppingSum">￥{{sum|formatMoneyFilter}}</span>
+        <span class="shoppingCarInfoRight_button"><button class="myShoppingButton" disabled="false" @click="submit">结算</button></span>
+    </div>
+    <div class="clear"></div>
+    <table class="mytable_head">
+        <th>
+            <div class="checkbox checkbox-warning checkbox-inline"  id="checkAllTH_1">
+                <input type="checkbox" id="checkAll_1" value="" @click="selectAll($event)">
+                <label for="checkAll_1">全选</label>
+            </div>
+        </th>
+        <th>
+            <span>商品信息</span>
+        </th>
+        <th>
+            <span>单价</span>
+        </th>
+        <th>
+            <span>数量</span>
+        </th>
+        <th>
+            <span>价格</span>
+        </th>
+        <th>
+            <span>操作</span>
+        </th>
+    </table>
+    <table v-for="store,j in stores" class="mytable">
+        <tr>
+            <td>
+                <div class="checkbox checkbox-warning checkbox-inline checkAllTH_"  :id="'checkAllTH'+j">
+                    <input type="checkbox" :id="'checkAll'+j" value="" @click="selectAll_($event,j)">
+                    <label :for="'checkAll'+j">全选</label>
+                </div>
+            </td>
+            <td>
+                <span><i class="fa fa-tv"></i></span>
+                店铺：<a :href="getStore(store.id)">{{store.name}}</a>
+                <a href="#no" @click="sendMessage(store.id)"><i class="fa fa-envelope"></i></a>
+            </td>
+            <td colspan="3"></td>
+        </tr>
+        <tr oiid="${item.id}" class="cartProductItemTR" v-for="item,i in store.orderItems">
+            <td class="checkOne shoppingCarInfo_select">
+                <div class="checkbox checkbox-warning checkbox-inline">
+                    <input type="checkbox" :id=item.id :value=item.id :name="'checkbox'+j" @click="select($event,i,j)">
+                    <label :for=item.id></label>
+                </div>
+                <a :href="getProduct(item.product.id)"><img
+                        :src="getImage('productSingle_middle',item.product.firstProductImage.id)" alt="product"
+                        class="shoppingCarInfo_selectImg"></a>
+            </td>
+            <td class="shoppingCarInfo_name">
+                <span class="shoppingCarInfo_title"><a :href="getProduct(item.product.id)">{{item.product.name}}</a></span>
+                <span class="shoppingCarInfo_imgs">
+                    <i class="fa fa-credit-card" :class="store.authentication_credit==1?'hasAuthenticate':'notHasAuthenticate'" title="支持信用卡支付"></i>
+                    <i class="fa fa-id-card-o" :class="store.authentication_id==1?'hasAuthenticate':'notHasAuthenticate'" title="实名认证"></i>
+                    <i class="fa fa-tablet" :class="store.authentication_phone==1?'hasAuthenticate':'notHasAuthenticate'" title="七天退换"></i>
+                </span>
+            </td>
+            <td class="shoppingCarInfo_price">
+                <span class="shoppingCarInfo_orignPrice">￥{{item.product.originalPrice |formatMoneyFilter}}</span>
+                <span class="shoppingCarInfo_nowPrice">￥{{item.product.promotePrice |formatMoneyFilter}}</span>
+            </td>
+            <td class="shoppingCarInfo_number">
+                <a href="#no" @click="up(item.id,i,j)">+</a>
+                <input type="text" :value="item.number" @keyup="setNumber($event,item.id,i,j)">
+                <a href="#no" @click="down(item.id,i,j)">-</a>
+            </td>
+            <td class="shoppingCarInfo_sum">
+                <span>￥{{item.product.promotePrice*item.number | formatMoneyFilter }}</span>
+            </td>
+            <td class="shoppingCarInfo_delete">
+                <a href="#no" oiid="${item.id}" @click="deleteItem(item.id)">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>

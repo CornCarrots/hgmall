@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('产品图片管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/tree/bootstrap-treeview.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/product.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_productImage_add">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">产品图片</li>
+        </ol>
+        <div class="treeDIV">
+            <div style="width: 29%;">
+                <div id="treeview-checkable"></div>
+            </div>
+            <div style="width: 70%;">
+                <div class="back_productImage">
+                    <div class="productImage_Single">
+                        <div style="margin-bottom: 10px;width: 100%">
+                            <span>
+                               <label for="uploadFile1" class=" btn btn-warning"><i class="fa fa-plus"></i>上传图片</label>
+                                <input id="uploadFile1" name="image" type="file" accept="image/*" style="display:none" @change="getFile($event,'single')"/>
+                            </span>
+                            <hr>
+                        </div>
+                        <table class="table table-bordered table-hover table-striped table-condensed productImageSingle-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>产品单个图片缩略图</th>
+                                <th>删除</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="image in singles">
+                                <td>{{image.id}}</td>
+                                <td><a :href="getImage(image.id)" target="_blank"><img height="40px" width="40px" :src="getSingle(image.id)"></a></td>
+                                <td><a href="#no" @click="deleteProductImage_(image.id,'single')"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="productImage_Detail">
+                        <div style="margin-bottom: 10px;width: 100%">
+                            <span>
+                               <label for="uploadFile2" class=" btn btn-warning"><i class="fa fa-plus"></i>上传图片</label>
+                                <input id="uploadFile2" name="image" type="file" accept="image/*" style="display:none" @change="getFile($event,'detail')"/>
+                            </span>
+                            <hr>
+                        </div>
+
+                        <table class="table table-bordered table-hover table-striped table-condensed productImageDetail-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>产品详情图片缩略图</th>
+                                <th>删除</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="image in details">
+                                <td>{{image.id}}</td>
+                                <td>
+                                    <a :href="getDetail(image.id)" target="_blank"><img height="40px" width="40px" :src="getDetail(image.id)"></a></td>
+                                <td><a href="#no" @click="deleteProductImage_(image.id,'detail')"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div th:replace="back/include/404_list::html('产品图片')"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/tree/bootstrap-treeview.min.js}"></script>
+<script th:src="@{/js/back/productImage.js}"></script>
+</body>

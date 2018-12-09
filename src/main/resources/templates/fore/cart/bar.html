@@ -1,0 +1,19 @@
+<div class="shoppingCarBar" th:fragment="html">
+    <div class="shoppingCarButton">
+    <span class="shoppingCarButton_all">
+          <div class="checkbox checkbox-warning checkbox-inline"  id="checkAllTH_2">
+              <input type="checkbox" id="checkAll_2" value="" @click="selectAll($event)">
+              <label for="checkAll_2">全选</label>
+          </div>
+    </span>
+        <span class="shoppingCarButton_right">
+        <span class="shoppingCarButton_select">
+            已选商品
+            <span class="shoppingCarButton_selectNum myShoppingNum">{{number}}</span>件(不含运费)：
+        </span>
+        <span  class="shoppingCarButton_price myShoppingSum">￥{{sum|formatMoneyFilter}}</span>
+    </span>
+    </div><span  class="shoppingCarButton_buy">
+        <button class="myShoppingButton" disabled="false" @click="submit">结 算</button>
+    </span>
+</div>

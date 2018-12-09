@@ -1,0 +1,25 @@
+<div class="pageDiv" th:fragment="html">
+    <nav>
+        <ul class="pagination">
+            <li :class="{ disabled: pages.first }">
+                <a  href="#first" @click="jump('first')">«</a>
+            </li>
+            <li :class="{ disabled: !pages.hasPrevious }">
+                <a  href="#prev" @click="jump('pre')">‹</a>
+            </li>
+
+            <li  v-for="i in pages.navigatepageNums">
+                <a href="#no" @click="jumpByNumber(i-1)" >
+                    {{i}}
+                </a>
+            </li>
+
+            <li :class="{ disabled: !pages.hasNext }">
+                <a  href="#next" @click="jump('next')">›</a>
+            </li>
+            <li :class="{ disabled: pages.last }">
+                <a  href="#last" @click="jump('last')"> »</a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('产品管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/tree/bootstrap-treeview.min.css}">
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/product.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_product_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">所有产品</li>
+        </ol>
+        <div class="treeDIV">
+            <div>
+                <div id="treeview-checkable"></div>
+            </div>
+            <div>
+                <div style="margin-bottom: 10px;width: 100%">
+                    <button class="btn btn-warning" @click="addButton"><i class="fa fa-plus"> 增加产品</i></button>
+                    <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash-o"> 批量删除</i></button>
+                    <div id="search">
+                        <div class="input-group">
+                            <input class="form-control" type="text" v-model.lazy="key">
+                            <span class="input-group-btn">
+                         <button class="btn btn-info" @click="searchProduct_"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover table-striped table-condensed back_product_list_table">
+                    <thead>
+                    <tr>
+                        <th id="checkAllTH">
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" id="checkAll" value="">
+                                <label for="checkAll"></label>
+                            </div>
+                        </th>
+                        <th>ID</th>
+                        <th>图片</th>
+                        <th width="30%">产品名称</th>
+                        <th width="25%">产品小标题</th>
+                        <th width="7%">原价格</th>
+                        <th width="9%">优惠价格</th>
+                        <th>库存</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="product in products">
+                        <td class="checkOne">
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" :id=product.id :value=product.id name="productCheckbox">
+                                <label :for=product.id></label>
+                            </div>
+                        </td>
+                        <td>{{product.id}}</td>
+                        <td v-if="product.firstProductImage">
+                            <img width="40px" :src="getImage(product.firstProductImage.id)">
+                        </td>
+                        <td v-if="!product.firstProductImage"></td>
+                        <td v-if="product.name.length>=40">{{product.name | subStringFilter(0,40)}}...</td>
+                        <td v-if="product.name.length<40">{{product.name}}</td>
+                        <td v-if="product.subTitle.length<40">{{product.subTitle}}</td>
+                        <td v-if="product.subTitle.length>=40">{{product.subTitle | subStringFilter(0,40)}}...</td>
+                        <td>￥{{product.originalPrice | formatMoney}}</td>
+                        <td>￥{{product.promotePrice | formatMoney}}</td>
+                        <td>{{product.stock}}</td>
+                        <td><a href="#no" @click="editProduct_(product.id)"><span class="fa fa-edit"></span></a></td>
+                        <td><a href="#no" @click="deleteProduct_(product.id)"><span class="fa fa-trash"></span></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div th:replace="back/include/404_list::html('产品')"></div>
+                <div th:replace="back/include/404_search::html('{{key}}','产品')"></div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+    <div th:replace="back/modal/addProduct::html"></div>
+    <div th:replace="back/modal/editProduct::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/tree/bootstrap-treeview.min.js}"></script>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/product.js}"></script>
+</body>

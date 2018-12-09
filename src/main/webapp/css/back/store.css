@@ -1,0 +1,85 @@
+.back_store_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+
+.back_store_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_store_list_table thead{
+    background: #edf1f6;
+    text-align: center;
+}
+.back_store_list_table thead tr th{
+    text-align: center;
+}
+.back_store_list_table tbody tr td{
+    vertical-align: middle;
+}
+
+.storeInfo_information{
+    width: 100%;
+    margin: 0px auto;
+
+}
+.storeInfo_information table{
+    width: 100%;
+    border-spacing: 20px;
+    border-collapse: separate;
+    table-layout: fixed;
+    text-align: left;
+
+}
+.tableHead{
+     text-align: center;
+ }
+.hasAuthenticate{
+    color: orange;
+}
+.notHasAuthenticate{
+    color: gray;
+}
+.storeInfo_Text p{
+    text-indent: 2em;
+}
+.storeInfoModelDialog{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.storeInfoModelContent{
+    height: 100%;
+    width: 800px;
+    margin: 0 auto;
+}
+.back_myStore_list{
+    width: 100%;
+    margin: 10px auto;
+
+}
+.back_myStore_list table{
+    width: 80%;
+    height: 400px;
+    /*padding: 10px;*/
+    border-collapse: separate;
+    border-spacing: 20px;
+    text-align: center;
+    table-layout: fixed;
+}
+.back_myStore_list table tr td:first-child{
+    text-align: right;
+    width: 20%;
+}
+.back_myStore_list table tr td:nth-child(2){
+    width: 60%;
+    text-align: left;
+}
+.back_myStore_list table tr td:last-child{
+
+}
+.back_myStore_list table tr td input{
+    width: 300px;
+}

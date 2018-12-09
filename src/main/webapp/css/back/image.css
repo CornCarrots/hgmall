@@ -1,0 +1,40 @@
+.back_carousel_search{
+    margin: 10px auto;
+}
+.carouselDIV table{
+    text-align: center;
+    margin: 10px auto;
+    width: 80%;
+}
+.back_carousel_edit table{
+    width: 72%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 17px;
+}
+.carouselDIV table thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+.carouselDIV table tbody tr td{
+    vertical-align: middle;
+}
+.carouselDIV table .mainImage{
+    width: 60%;
+}
+.advertisingDIV table{
+    text-align: center;
+}
+.advertisingDIV table thead th {
+    text-align: center;
+    background: #b2dba1;
+}
+.advertisingDIV table tbody tr td{
+    vertical-align: middle;
+}
+.advertisingDIV table .mainImage{
+    width: 60%;
+}
+.advertisingButton{
+    margin-bottom: 10px;
+}

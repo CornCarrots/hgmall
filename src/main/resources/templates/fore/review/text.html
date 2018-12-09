@@ -1,0 +1,22 @@
+<div th:fragment="html">
+    <div class="accessText_head">
+        <b class="accessText_head_red">累计评价 <span class="accessText_number">{{item.product.reviews}}</span></b>
+        <span class="accessText_head_white"></span>
+    </div>
+    <div class="accessText_text">
+        <div class="accessText_title">
+            <b>其他买家，需要你的建议哦！</b>
+        </div>
+        <div class="accessText_table">
+            <span class="accessText_table1">评价商品</span>
+            <span class="accessText_table2">
+                    <textarea maxlength="200" cols="55" rows="5" name="content" v-model="review.content"></textarea>
+                </span>
+        </div>
+        <div style="margin: 0 37px 20px;"><span style="color: red">剩余{{200-review.content.length}}个字</span></div>
+        <div class="accessText_button">
+            <button class="btn btn-success" @click="reviewButton">提交评价</button>
+        </div>
+
+    </div>
+</div>

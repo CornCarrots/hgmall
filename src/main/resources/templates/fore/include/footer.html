@@ -1,0 +1,63 @@
+<div th:fragment="html" >
+    <div class="clearfix"></div>
+    <footer class="foot">
+        <div class="foot1">
+            <div class="footimg">
+                <i class="fa fa-envelope fa-2x"></i>
+                <span>加入我们的新闻通讯计划，确保您不会错过任何有趣的事情</span>
+                <input type="text" class="form-control" placeholder="请输入您的邮箱...">
+                <button class="btn btn-default">订阅</button>
+            </div>
+            <div class="footdesc">
+                <div class="inline" style="text-align: left">
+                    <span class="bold">关于我们</span>
+                    <br>
+                    <a href="#nowhere" class="block"><i class="fa fa-map-marker"></i> 广东省广州市花都区</a>
+                    <a href="#nowhere" class="block"><i class="fa fa-phone"></i> (020)123456789</a>
+                    <a href="#nowhere" class="block"><i class="fa fa-envelope"></i> 123456789x@gmail.com</a>
+                    <span class="inlineSpan">
+                    <a href="#no" style="display: inline"><i class="fa fa-wechat" style="color: green"></i></a>
+                    <a href="#no" style="display: inline"><i class="fa fa-qq" style="color: blue"></i></a>
+                    <a href="#no" style="display: inline"><i class="fa fa-weibo"></i></a>
+                </span>
+                </div>
+                <div class="inline" style="text-align: left">
+                    <span class="bold">网站信息</span>
+                    <br>
+                    <a href="#nowhere">关于我们</a>
+                    <a href="#nowhere">订单历史</a>
+                    <a href="#nowhere">帮助中心</a>
+                    <a href="#nowhere">联系我们</a>
+                    <a href="#nowhere">制造产商</a>
+                    <a href="#nowhere">运营服务</a>
+                    <a href="#nowhere">进货与退货</a>
+                    <a href="#nowhere">隐私说明</a>
+                    <a href="#nowhere">在线支持</a>
+                </div>
+                <div class="inline">
+                    <span class="bold">商城保障</span>
+                    <br>
+                    <a href="#nowhere" class="block">发票保障</a>
+                    <a href="#nowhere" class="block">售后规则</a>
+                    <a href="#nowhere" class="block">缺货赔付</a>
+                </div>
+
+                <div class="inline">
+                    <span class="bold">商家服务</span>
+                    <br>
+                    <a href="#nowhere" class="block">商家入驻</a>
+                    <a href="#nowhere" class="block">商家中心</a>
+                    <a href="#nowhere" class="block">物流服务</a>
+                    <a href="#nowhere" class="block">运营服务</a>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="foot2">
+            <div class="foot2con">
+                <div th:text="${application.right}"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+

@@ -1,0 +1,206 @@
+<div class="back_navigation pull-left optiscroll" id="scroll" th:fragment="html"
+     xmlns:th="http://www.thymeleaf.org">
+    <nav>
+        <div class="accordion" id="accordion"  th:each="role:${session.manager.roles}">
+            <div class="accordion-group">
+                <a th:href="@{/admin}">
+                    <div class="accordion-heading">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                </a>
+            </div>
+            <div class="accordion-group" th:if="${role.id==1||role.id==2||role.id==3||role.id==13}">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <div class="accordion-heading">
+                        <i class="fa fa-th-large"></i>
+                        <span>分类管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseOne" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/category/categoryList}">分类列表</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/category/property}">属性管理</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group" th:if="${role.id==1||role.id==2||role.id==4||role.id==13}">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <div class="accordion-heading">
+                        <i class="fa fa-desktop"></i>
+                        <span>产品管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/product/productList}">产品列表</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/product/productImage}">产品图片</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/product/propertyValue}">属性值管理</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <div class="accordion-heading">
+                        <i class="fa fa-picture-o"></i>
+                        <span>图片管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==5}">
+                        <a th:href="@{/admin/image/carousel}">首页轮播图片</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==5||role.id==13}">
+                        <a th:href="@{/admin/image/smallCarousel}">店铺轮播图片</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==5}">
+                        <a th:href="@{/admin/image/advertisement}">广告图片</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFore">
+                    <div class="accordion-heading">
+                        <i class="fa fa-list"></i>
+                        <span>交易管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseFore" class="accordion-body collapse">
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==6}">
+                        <a th:href="@{/admin/sale/saleList}">交易信息</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==6}">
+                        <a th:href="@{/admin/sale/map}">交易分布图</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==6||role.id==13}">
+                        <a th:href="@{/admin/sale/order}">订单管理</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==6||role.id==13}">
+                        <a th:href="@{/admin/sale/exchange}">售后处理</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group" th:if="${role.id==1||role.id==2||role.id==7}">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                    <div class="accordion-heading">
+                        <i class="fa fa-user"></i>
+                        <span>用户管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseFive" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/user/userList}">用户列表</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/user/member}">会员信息</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/user/score}">积分管理</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                    <div class="accordion-heading">
+                        <i class="fa fa-tv"></i>
+                        <span>店铺管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseSeven" class="accordion-body collapse">
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==8}">
+                        <a th:href="@{/admin/store/storeList}">店铺列表</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==13}">
+                        <a th:href="@{/admin/store/storeInfo}">我的店铺</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                    <div class="accordion-heading">
+                        <i class="fa fa-comments-o"></i>
+                        <span>消息管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseEight" class="accordion-body collapse">
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==9||role.id==13}">
+                        <a  th:href="@{/admin/message/messageList}">留言列表</a>
+                    </div>
+                    <div class="accordion-inner" th:if="${role.id==1||role.id==2||role.id==9}">
+                        <a  th:href="@{/admin/message/view}">意见反馈</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group" th:if="${role.id==1||role.id==2||role.id==10}">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">
+                    <div class="accordion-heading">
+                        <i class="fa fa-bookmark"></i>
+                        <span>文章管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseNine" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/article/articleList}">文章列表</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/article/category}">文章分类</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group" th:if="${role.id==1||role.id==11}">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">
+                    <div class="accordion-heading">
+                        <i class="fa fa-cogs"></i>
+                        <span>系统管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseTen" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/system/systemList}">系统设置</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/system/module}">模块列表</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/system/operation}">操作列表</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group" >
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">
+                    <div class="accordion-heading">
+                        <i class="fa fa-users"></i>
+                        <span>管理员管理</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                </a>
+                <div id="collapseEleven" class="accordion-body collapse">
+                    <div class="accordion-inner"th:if="${role.id==1||role.id==2||role.id==12}">
+                        <a th:href="@{/admin/manager/managerList}">管理员列表</a>
+                    </div>
+                    <div class="accordion-inner"th:if="${role.id==1||role.id==2||role.id==12}">
+                        <a th:href="@{/admin/manager/role}">角色管理</a>
+                    </div>
+                    <div class="accordion-inner">
+                        <a th:href="@{/admin/manager/person}">个人信息</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

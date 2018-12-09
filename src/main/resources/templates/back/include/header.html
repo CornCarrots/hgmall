@@ -1,0 +1,25 @@
+<template th:fragment="html(title)" xmlns:th="http://www.thymeleaf.org">
+    <link th:href="@{/css/include/bootstrap/bootstrap.css}" rel="stylesheet" href="../../../../webapp/css/include/bootstrap/bootstrap.css">
+    <link th:href="@{/css/include/awesome/font-awesome.css}" rel="stylesheet" href="../../../../webapp/css/include/awesome/font-awesome.css">
+    <!--<link th:href="@{/css/include/scroll/optiscroll.css}" href="../../../../webapp/css/include/scroll/optiscroll.css">-->
+    <link th:href="@{/css/include/validation/validationEngine.jquery.css}" rel="stylesheet" >
+    <link th:href="@{/css/back/include.css}" rel="stylesheet"  href="../../../../webapp/css/back/include.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">-->
+    <link rel="stylesheet" th:href="@{/css/include/dialog/jquery-confirm.min.css}">
+
+    <script th:src="@{/js/include/jquery/jquery.min.js}" src="../../../../webapp/js/include/jquery/jquery.min.js"></script>
+    <script th:src="@{/js/include/bootstrap/bootstrap.js}" src="../../../../webapp/js/include/bootstrap/bootstrap.js"></script>
+    <script th:src="@{/js/include/vue/vue.min.js}" src="../../../../webapp/js/include/vue/vue.min.js"></script>
+    <script th:src="@{/js/include/axios/axios.min.js}" src="../../../../webapp/js/include/axios/axios.min.js"></script>
+    <script th:src="@{/js/include/vue/moment.js}" src="../../../../webapp/js/include/vue/moment.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>-->
+    <script th:src="@{/js/include/dialog/jquery-confirm.min.js}" ></script>
+    <!--<script th:src="@{/js/include/scroll/jquery.optiscroll.min.js}" src="../../../../webapp/js/include/scroll/jquery.optiscroll.min.js"></script>-->
+    <script th:src="@{/js/back/include.js}" src="../../../../webapp/js/back/include.js"></script>
+
+    <script th:src="@{/js/include/validation/jquery.validationEngine-zh_CN.js}" ></script>
+    <script th:src="@{/js/include/validation/jquery.validationEngine.js}" ></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title th:text="${title}" ></title>
+</template>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('后台管理')"></head>
+<link rel="stylesheet" th:href="@{/css/back/index.css}">
+<body>
+<div th:replace="back/include/top::html" ></div>
+<div th:replace="back/include/side::html" ></div>
+<div class="container">
+    <div class="index_info">
+        <div class="index_info_block">
+            <div id="index_info_block_user" class="index_info_icon"><i class="fa fa-user fa-3x"></i></div>
+            <div class="index_info_content">
+                <h1>{{users_num}}</h1>
+                <p>商城用户</p>
+            </div>
+        </div>
+        <div class="index_info_block">
+            <div id="index_info_block_distribution" class="index_info_icon"><i class="fa fa-tv fa-3x"></i></div>
+            <div class="index_info_content">
+                <h1>{{stores_num}}</h1>
+                <p>商城店铺</p>
+            </div>
+        </div>
+        <div class="index_info_block">
+            <div id="index_info_block_order" class="index_info_icon"><i class="fa fa-shopping-cart fa-3x"></i></div>
+            <div class="index_info_content">
+                <h1>{{orders_num}}</h1>
+                <p>订单总量</p>
+            </div>
+        </div>
+        <div class="index_info_block">
+            <div id="index_info_block_transaction" class="index_info_icon"><i class="fa fa-bar-chart fa-3x"></i></div>
+            <div class="index_info_content">
+                <h1>￥ {{orders_sum|formatMoney}}</h1>
+                <p>交易金额</p>
+            </div>
+        </div>
+    </div>
+    <div class="index_news">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+            <tr>
+                <th colspan="2">订单处理信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>待结算订单</td>
+                <td><span class="data">{{orders_pay}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>待发货订单</td>
+                <td><span class="data">{{orders_delivery}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>待收货订单</td>
+                <td><span class="data">{{orders_confirm}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>已成功订单</td>
+                <td><span class="data">{{orders_success}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>交易失败</td>
+                <td><span class="data">{{orders_fail}}</span> 个</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+            <tr>
+                <th colspan="2">商品统计信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>分类总数</td>
+                <td><span class="data">{{category_num}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>商品总数</td>
+                <td><span class="data">{{products_all}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>上架商品</td>
+                <td><span class="data">{{products_success}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>下架商品</td>
+                <td><span class="data">{{products_fail}}</span> 个</td>
+            </tr>
+            <tr>
+                <td>商品评论</td>
+                <td><span class="data">{{review_num}}</span> 个</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered table-striped table-hover table-condensed" style="text-align: left">
+            <thead>
+            <tr>
+                <th>最新消息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="msg in messages">
+                <td>
+                    <i class="data fa fa-bell-o"></i>
+                    <span v-if="msg.text.length>20"><a th:href="@{/admin/message/messageList#msg}">{{msg.text | subStringFilter(0,20) }}...</a></span>
+                    <span v-if="msg.text.length<=20"><a th:href="@{/admin/message/messageList#msg}">{{msg.text}}</a></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="back/include/footer::html" ></div>
+<script th:src="@{/js/back/home.js}"></script>
+
+</body>

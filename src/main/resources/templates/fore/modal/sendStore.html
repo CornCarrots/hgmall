@@ -1,0 +1,40 @@
+<div th:fragment="html" class="container">
+    <div id="addMessageModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addMessageModel"
+         aria-hidden="true">
+        <div class="modal-dialog addMessageModelDialog">
+            <div class="modal-content addMessageModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">留言</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="addMessageDIV">
+                        <table class="messageInfoTable">
+                            <tr>
+                                <td>留言用户:</td>
+                                <td th:if="${session.user!=null}" th:text="${session.user.nickName}"></td>
+                                <!--<td v-if="message.user!=null">{{message.user.name}}</td>-->
+                            </tr>
+                            <tr>
+                                <td>留言内容:</td>
+                                <td>
+                                    <textarea maxlength="200" class="form-control" id="addMessage" cols="50" rows="10" v-model="message.text"></textarea>
+                                    <p v-if="message.text">剩余字数：<span style="color: red">{{200-message.text.length}}</span>字</p>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button class="btn btn-default" @click="sendButton">发送</button>
+                    <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

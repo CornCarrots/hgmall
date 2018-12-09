@@ -1,0 +1,21 @@
+<div class="help" th:fragment="html">
+    <div class="side pull-left">
+        <ul class="nav nav-pills nav-stacked" v-for="cat,i in categories">
+            <li role="presentation" :class="{active:i==index}"><a href="#no" @click="getTitle(i)">{{cat.name}}</a></li>
+        </ul>
+    </div>
+    <div class="content pull-left">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/help}"><i class="fa fa-home">帮助中心</i></a></li>
+            <li class="active">{{category.name}}</li>
+        </ol>
+        <div class="question">
+            <div v-for="art in articles" class="questionDiv">
+                <a href="#no" @click="getArticle($event)">{{art.title}}</a>
+                <p>{{art.summary}}</p>
+                <div v-html="art.htmlText" class="artContent" style="display:none;">{{art.htmlText}}</div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div th:fragment="html" class="container">
+    <div id="getPowerModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="getPowerModel"
+         aria-hidden="true">
+        <div class="modal-dialog getPowerModelDialog">
+            <div class="modal-content getPowerModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">会员特权</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align: center">{{power.title}}</h4>
+                    <div style="margin-left: 20px" v-html="power.text">{{power.text}}</div>
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">知道了</button>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

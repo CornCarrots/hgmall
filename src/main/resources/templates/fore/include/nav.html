@@ -1,0 +1,21 @@
+<nav th:fragment="html">
+    <div class="indexNav">
+            <span class="indexNav_mycate active"><a th:href="@{/home}"><span>首页</span></a></span>
+            <!--<span class="indexNav_mycate"><a href="#no">今日优惠</a></span>-->
+            <span class="indexNav_mycate"><a th:href="@{/manager}">我的店铺</a></span>
+            <span class="indexNav_mycate"><a th:href="@{/member}">会员中心</a></span>
+            <span class="indexNav_mycate"><a href="http://www.lhaoo.top:8080/blog">零号博客</a></span>
+            <span class="dropdown">
+                <a href="#no" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="100"
+                   data-close-others="false">
+                    售后服务 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" style="background-color: #fa5555;margin-top: 10px">
+                    <!--<li class="divider"></li>-->
+                    <li><a tabindex="-1" th:href="@{/help}">帮助中心</a></li>
+                    <li><a tabindex="-1" th:href="@{/message}">联系我们</a></li>
+                    <li><a tabindex="-1" th:href="@{/view}">反馈建议</a></li>
+                </ul>
+            </span>
+    </div>
+</nav>

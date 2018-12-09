@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/fore/store.css}">
+<body>
+<div th:replace="fore/include/top::html" ></div>
+<div th:replace="fore/include/nav::html" ></div>
+<div class="main">
+    <div class="getStore">
+        <div class="storeDiv1">
+            <h5 class="graySpan">
+                <span class="fa fa-stack fa-3x"><i class="fa fa-laptop fa-stack-1x"></i><i class="fa fa-circle-thin fa-stack-2x"></i></span>
+                已有店铺
+            </h5>
+            <a th:href="@{/store_login}"><button class="btn btn-success btn-lg">立即登录</button></a>
+        </div>
+        <div class="storeDiv2">
+            <h5 class="graySpan">
+                <span class="fa fa-stack fa-3x"><i class="fa fa-laptop fa-stack-1x"></i><i class="fa fa-ban fa-stack-2x text-danger"></i></span>
+                没有店铺
+            </h5>
+            <a th:href="@{/store_apply}"> <button class="btn btn-warning btn-lg">店铺申请</button></a>
+
+        </div>
+    </div>
+</div>
+<div th:replace="fore/include/footer::html" ></div>
+<script th:src="@{/js/fore/view.js}" ></script>
+</body>

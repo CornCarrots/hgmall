@@ -1,0 +1,79 @@
+<div class="orderObject" th:fragment="html">
+    <div class="orderObject_myobject" v-for="order,i in orders">
+        <div class="orderObject_myobjectBorder">
+            <table>
+                <tr class="myobject_bar">
+                    <td class="myobject_orderNumber" colspan="3">
+                        <span class="myobject_orderTime">{{order.createDate | formatDateFilter}}</span>
+                        <span class="myobject_orderNum">订单号：{{order.orderCode}}</span>
+                        <i class="fa fa-tv"></i><span style="margin: 10px">{{order.store.name}}</span>
+                        <a href="#no" @click="sendMessage(order.store.id)"><i class="fa fa-envelope"></i></a>                    </td>
+                    <td class="myobject_orderDelete" colspan="3">
+                        <a href="#no" title="物流" @click="logistics_(order.id)"><i class="fa fa-car fa-2x"></i></a>
+                        <a href="#no" title="售后" @click="exchange(order.id,i)"><i class="fa fa-refresh fa-2x"></i></a>
+                        <a href="#no" title="删除" @click="deleteOrder(order.id)"><i class="fa fa-trash fa-2x"></i></a>
+                    </td>
+                </tr>
+                <tr class="myobject_object" v-for="item,j in order.orderItems">
+                    <td class="myobject_objectImg">
+                        <img :src="getImage('productSingle_middle',item.product.firstProductImage.id)" alt="product">
+                    </td>
+                    <td class="myobject_objectName">
+                        <span class="myobject_objectTitle">
+                            <a :href="getProduct(item.product.id)">{{item.product.name}}</a></span>
+                        <span class="myobject_objectImgs">
+                                <i class="fa fa-credit-card"
+                                   :class="order.store.authentication_credit==1?'hasAuthenticate':'notHasAuthenticate'"
+                                   title="支持信用卡支付"></i>
+                                <i class="fa fa-id-card-o"
+                                   :class="order.store.authentication_id==1?'hasAuthenticate':'notHasAuthenticate'"
+                                   title="实名认证"></i>
+                                <i class="fa fa-tablet"
+                                   :class="order.store.authentication_phone==1?'hasAuthenticate':'notHasAuthenticate'"
+                                   title="七天退换"></i>
+                        </span>
+                    </td>
+                    <td class="myobject_objectPrice">
+                        <span class="myobject_objectOrign">￥{{item.product.originalPrice |formatMoneyFilter}}</span>
+                        <br>
+                        <span class="myobject_objectNow">￥{{item.product.promotePrice |formatMoneyFilter}}</span>
+                    </td>
+                    <td class="myobject_objectNum">
+                        <span class="myobject_objectNumber">{{item.number}}</span>
+                    </td>
+                    <td class="myobject_objectAccount" :rowspan="order.orderItems.length" v-if="j==0">
+                        <span class="myobject_objectNowAccount">￥{{order.sum}}</span>
+                        <span>(含运费：￥0.00)</span>
+                    </td>
+                    <td class="myobject_objectModify" v-if="order.status!='type_waitReview'&&j==0" :rowspan="order.orderItems.length">
+                        <button class="btn btn-info" @click="pay(order.id)" v-if="order.status=='type_waitPay'">去付款
+                        </button>
+                        <button class="btn btn-info" @click="delivery($event,order.id)"
+                                v-if="order.status=='type_waitDelivery'">催卖家发货
+                        </button>
+                        <button class="btn btn-info" @click="confirm(order.id)" v-if="order.status=='type_waitConfirm'">
+                            确认收货
+                        </button>
+                        <span v-if="order.status=='type_success'" class="label label-success">交易成功</span>
+                        <span v-if="order.status=='type_fail'" class="label label-danger">交易失败</span>
+                        <span v-if="order.status=='type_waitExchange'" class="label label-warning">换货中</span>
+                        <span v-if="order.status=='type_waitRefund'" class="label label-warning">退款中</span>
+                        <span v-if="order.status=='type_waitRejected'" class="label label-warning">退货中</span>
+                    </td>
+                    <td class="myobject_objectModify" v-if="order.status=='type_waitReview'">
+                        <button v-if="item.review==0" class="btn btn-info" @click="review(item.id)">
+                            去评价
+                        </button>
+                        <span  v-if="item.review==1" class="label label-success">已评价</span>
+                    </td>
+            </table>
+        </div>
+    </div>
+    <div class="order404" style="display: none">
+        <h3 class="greenSpan">亲爱的，你的订单历史空空如也！</h3>
+        <h3>去商城看看有哪些需要的东西，赶快下单吧</h3>
+        <a th:href="@{/home}">
+            <button class="btn btn-success btn-lg registerButton">返回首页</button>
+        </a>
+    </div>
+</div>

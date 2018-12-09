@@ -1,0 +1,30 @@
+.message{
+    width: 100%;
+    margin:  30px auto;
+    padding: 30px 10px;
+}
+.messageDIV{
+    width: 50%;
+    height: 200px;
+    position: relative;
+    background-color: white;
+    margin: 0px auto;
+}
+.messageDIV p{
+    margin-left: 60px;
+    font-size: 14px;
+}
+.messageDIV button{
+    position: absolute;
+    right: 100px;
+    bottom: 0px;
+}
+.messageInfoTable{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+#addMessage{
+    resize: none;
+    width: 100%;
+}

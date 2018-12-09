@@ -1,0 +1,31 @@
+<div th:fragment="html">
+    <div class="accessProduct">
+        <div class="accessProduct_img pull-left">
+            <img :src="getImage('productSingle_middle',item.product.firstProductImage.id)" alt="product">
+        </div>
+        <div class="accessProduct_info pull-right">
+            <p  class="accessProduct_info_title">
+                <b>{{item.product.name}}</b>
+            </p>
+            <table class="accessProduct_info_table">
+                <tr>
+                    <td class="accessProduct_info_thead">价格:</td>
+                    <td><span class="accessProduct_info_price">￥{{item.product.promotePrice |formatMoneyFilter}} </span>元</td>
+                </tr>
+                <tr>
+                    <td class="accessProduct_info_thead">配送:</td>
+                    <td>快递: 0.00</td>
+                </tr>
+                <tr>
+                    <td class="accessProduct_info_thead">月销量:</td>
+                    <td><span class="accessProduct_info_num">{{item.product.sales}} </span>件</td>
+                </tr>
+            </table>
+            <div class="accessProduct_info_tip">
+                <img th:src="@{image/site/reviewLight.png}" alt="reviewLight">
+                <span>在查看的是您于{{item.order.createDate|formatDateFilter}}下单购买了此商品</span>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

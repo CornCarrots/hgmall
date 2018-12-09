@@ -1,0 +1,54 @@
+<div th:fragment="html" class="container">
+    <div id="addProductModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addProductModel"
+         aria-hidden="true">
+        <div class="modal-dialog addProductModelDialog">
+            <div class="modal-content addProductModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加产品</h4>
+                </div>
+                <form id="addForm" onsubmit="return false;" @submit="addProduct_">
+                    <div class="modal-body">
+                        <div class="back_product_add">
+                            <table class="addTable">
+                                <tr>
+                                    <td>产品名称</td>
+                                    <td><input type="text" class="form-control validate[required,maxSize[10]]"
+                                               placeholder="请输入产品名称" v-model="addProduct.name"></td>
+                                </tr>
+                                <tr>
+                                    <td>产品小标题</td>
+                                    <td><input type="text" class="form-control validate[required,maxSize[10]]"
+                                               placeholder="请输入产品小标题" v-model="addProduct.subTitle"></td>
+                                </tr>
+                                <tr>
+                                    <td>原价格</td>
+                                    <td><input type="text" class="form-control validate[required,custom[number]]"
+                                               placeholder="请输入产品原价格" v-model="addProduct.originalPrice"></td>
+                                </tr>
+                                <tr>
+                                    <td>优惠价格</td>
+                                    <td><input type="text" class="form-control validate[required,custom[number]]"
+                                               placeholder="请输入产品优惠价格" v-model="addProduct.promotePrice"></td>
+                                </tr>
+                                <tr>
+                                    <td>库存</td>
+                                    <td><input type="text" class="form-control validate[required,custom[number]]"
+                                               placeholder="请输入产品库存" v-model="addProduct.stock"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-default" type="submit">提交</button>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+</div>

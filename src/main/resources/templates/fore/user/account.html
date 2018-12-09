@@ -1,0 +1,55 @@
+<div class="userRight pull-left" th:fragment="html">
+    <div class="topDiv">
+        <h4><b>您的基础信息：</b></h4>
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td>{{user.name}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>登录邮箱：</td>
+                <td>{{user.email}}</td>
+                <td><a href="#no" @click="change('email')">[修改]</a></td>
+            </tr>
+            <tr>
+                <td>绑定手机：</td>
+                <td>{{user.mobile}}</td>
+                <td><a href="#no" @click="change('mobile')">[修改]</a></td>
+            </tr>
+            <tr>
+                <td>账户余额：</td>
+                <td>
+                    <span v-if="user.openDate==null">暂未开通</span>
+                    <span v-if="user.openDate!=null">{{user.account | formatMoneyFilter}}</span>
+                </td>
+                <td v-if="user.openDate==null"><a href="#no" @click="open()">[开通账户]</a></td>
+                <td v-if="user.openDate!=null"><a href="#no" @click="recharge()">[充值]</a></td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="bottomDiv">
+        <h4><b>您的安全服务：</b></h4>
+        <table>
+            <tr>
+                <td width="5%"><i class="fa fa-check fa-fw"></i></td>
+                <td width="10%">绑定手机</td>
+                <td>绑定手机后，您即可享受本网站丰富的手机服务，如手机找回密码等。</td>
+                <td><a href="#no" @click="change('mobile')">修改</a></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-check fa-fw"></i></td>
+                <td>登录密码</td>
+                <td>安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</td>
+                <td><a href="#no" @click="change('password')">修改</a></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-check fa-fw"></i></td>
+                <td>身份认证</td>
+                <td>用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</td>
+                <td><a href="#no">查看</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="indexCate" th:fragment="html">
+    <div class="indexCate_categy">
+        <div>
+            <i class="fa fa-th-list fa-2x" style="margin-right: 10px"></i>
+            <span>所有分类</span>
+        </div>
+        <div v-for="cat in categories" :cid="'c'+cat.id">
+            <i :class="'fa '+cat.icon+' fa-2x'" style="color: black"></i>
+            <a :href="getCategory(cat.id)">{{cat.name}}<i class="fa fa-chevron-right"></i></a>
+        </div>
+    </div>
+    <div class="indexCate_cate" v-for="cat in categories" :cid="'c'+cat.id">
+        <div class="row " v-for="row in cat.productRows">
+            <a :href="getProduct(product.id)" v-for="product in row">
+                {{product.subTitle | splitFilter }}
+            </a>
+            <div class="seperator"></div>
+        </div>
+    </div>
+</div>

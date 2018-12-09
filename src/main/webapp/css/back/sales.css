@@ -1,0 +1,81 @@
+.sales_info{
+    margin: 10px 0;
+}
+.sales_info_block{
+    display: inline-block;
+    margin: 5px 20px 5px 0;
+    width: 440px;
+    height: 103px;
+    color: #5e5e5e;
+    border: 1px solid #ebebeb;
+}
+.sales_info_icon{
+    float: left;
+    width: 175px;
+    height: 101px;
+    text-align: center;
+    padding: 25px;
+    color: white;
+}
+.sales_info_content{
+    float: left;
+    width: 253px;
+    height: 101px;
+    text-align: center;
+}
+.sales_info_content p{
+    margin-top: 10px;
+}
+.sales_info_content h1{
+    color: #ff3333;
+}
+#sales_info_block_user{
+    background-color: #ff6c60;
+}
+#sales_info_block_distribution{
+    background-color: #57c8f2;
+}
+#sales_info_block_order{
+    background-color: #f8d347;
+}
+#sales_info_block_transaction{
+    background-color: #438eb9;
+}
+.back_order_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+.back_order_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_order_list_table thead{
+    background: #b2dba1;
+}
+.back_order_list_table thead tr th{
+    text-align: center;
+}
+.back_order_list_table tbody tr td{
+    vertical-align: middle;
+}
+.deliveryButton button{
+    background: transparent;
+    color: #2b85e4;
+    border: 0px;
+    outline: none;
+}
+.deliveryButton .gray{
+   color: gray;
+}
+.orderItemNumber{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ff7e00;
+}
+.back_orderItemDIV{
+    border: 1px solid #ebebeb;
+    padding: 10px;
+    margin: 10px;
+}

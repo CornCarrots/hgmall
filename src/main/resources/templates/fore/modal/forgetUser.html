@@ -1,0 +1,28 @@
+<div th:fragment="html" class="container">
+    <div id="forgetModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="forgetModel"
+         aria-hidden="true">
+        <div class="modal-dialog forgetModelDialog">
+            <div class="modal-content forgetModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">忘记密码</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="loginDiv">
+                            <div class="input-group" style="margin: 20px auto">
+                                <label for="email" class="input-group-addon">您绑定的邮箱</label>
+                                <input id="email" type="email" class="form-control" placeholder="请输入您的邮箱" v-model="email">
+                            </div>
+                            <div>
+                                <button class="btn btn-danger" style="width: 100%" @click="forgetButton">验证邮箱</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

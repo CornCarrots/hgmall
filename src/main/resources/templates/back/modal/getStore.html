@@ -1,0 +1,70 @@
+<div th:fragment="html" class="container">
+    <div id="storeInfoModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="storeInfoModel"
+         aria-hidden="true">
+        <div class="modal-dialog storeInfoModelDialog">
+            <div class="modal-content storeInfoModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true"
+                                                                                   class="addCategoryNo">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">店铺信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="storeInfo_information">
+                        <table>
+                            <tr v-show="store.categories!=null&&(store.categories).length>0">
+                                <td colspan="4">
+                                    <img :src="getImage(store.id)" :alt="'store'+store.id" width="100%">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tableHead">店铺名称：</td>
+                                <td>{{store.name}}</td>
+                                <td class="tableHead">认证信息：</td>
+                                <td>
+                                    <i class="fa fa-credit-card fa-2x" :class="store.authentication_credit==1?'hasAuthenticate':'notHasAuthenticate'"></i>
+                                    <i class="fa fa-id-card-o fa-2x" :class=" store.authentication_id==1?'hasAuthenticate':'notHasAuthenticate'"></i>
+                                    <i class="fa fa-tablet fa-2x" :class=" store.authentication_phone==1?'hasAuthenticate':'notHasAuthenticate'"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tableHead">店铺类型：</td>
+                                <td>{{store.type | typeFilter}}</td>
+                                <td class="tableHead">店铺分类：</td>
+                                <td>{{store.category.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="tableHead">申请时间：</td>
+                                <td>{{store.applyDate | formatDateFilter}}</td>
+                                <td class="tableHead">申请人：</td>
+                                <td>{{store.applyName}}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tableHead">移动电话：</td>
+                                <td>{{store.mobile}}</td>
+                                <td class="tableHead">固定电话：</td>
+                                <td>{{store.telephone}}</td>
+                            </tr>
+                            <tr>
+                                <td class="tableHead">身份证号：</td>
+                                <td>{{store.identification}}</td>
+                                <td class="tableHead">个人邮箱：</td>
+                                <td>{{store.email}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="storeInfo_Text">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">店铺简介</div>
+                            <div class="panel-body" v-html="store.summary_html">
+                            </div>
+                            <!--''-->
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="member_info" th:fragment="html">
+    <img th:if="${session.user!=null}" th:src="@{'/image/profile_user/'+${session.user.id}+'.jpg'}" alt="user_profile">
+    <img th:if="${session.user==null}" th:src="@{/image/profile_user/default.jpg}" alt="user_profile">
+    <div>
+        <span class="member_info_name" th:if="${session.user==null}">欢迎您：<a th:href="@{/login}">请先登录</a></span>
+        <span class="member_info_name" th:if="${session.user!=null}" th:text="'欢迎您：'+${session.user.nickName}"></span>
+        <span class="member_info_plus">
+             <a href="#no" @click="upgrade"><i class="fa fa-user-circle" title="升级会员">升级会员</i></a>
+         </span>
+        <h4 style="margin-top: 20px">我的积分</h4>
+        <div class="progress progress-striped member_info_bar active">
+            <div th:if="${session.user!=null&&session.user.member!=null}"  class="progress-bar progress-bar-danger" th:style="'width:'+${session.user.score}/${session.user.member.max+1}*100+'%'"></div>
+            <div th:if="${session.user!=null&&session.user.member==null}"  class="progress-bar progress-bar-danger" th:style="'width:'+${session.user.score}/50*100+'%'"></div>
+        </div>
+    </div>
+
+    <h4 class="member_info_title">会员权益</h4>
+    <div class="member_info_right">
+        <div>
+            <a @click="myPower(0)" href="#no">
+                <i class="fa fa-car fa-3x"></i>
+                <p>运费单免</p>
+            </a>
+        </div>
+        <div>
+            <a @click="myPower(1)" href="#no">
+                <i class="fa fa-birthday-cake fa-3x"></i>
+                <p>生日特权</p>
+            </a>
+        </div>
+        <div>
+            <a @click="myPower(2)" href="#no">
+                <i class="fa fa-gift fa-3x"></i>
+                <p>乐享礼包</p>
+            </a>
+        </div>
+        <div>
+            <a @click="myPower(3)" href="#no">
+                <i class="fa fa-headphones fa-3x"></i>
+                <p>贵宾专线</p>
+            </a>
+        </div>
+        <div>
+            <a @click="myPower(4)" href="#no">
+                <i class="fa fa-refresh fa-3x"></i>
+                <p>以换代修</p>
+            </a>
+        </div>
+    </div>
+    <h4 class="member_info_title">会员积分</h4>
+    <div class="member_info_score">
+        <p>
+            <i class="fa fa-superpowers fa-2x" th:style="'color:'+@{(${session.user!=null&&session.user.member!=null}?
+            ${session.user.member.icon}:'gray')}+''"></i>
+            <span>当前等级：</span>
+            <span th:if="${session.user==null}"></span>
+            <span th:if="${session.user!=null&&session.user.member==null}">普通用户</span>
+            <span th:if="${session.user!=null&&session.user.member!=null}" th:text="${session.user.member.name}"></span>
+        </p>
+        <p>
+            <i class="fa fa-trophy fa-2x"></i>
+            <span>当前积分：</span>
+            <span th:if="${session.user==null}"></span>
+            <span th:if="${session.user!=null}" th:text="${session.user.score}"></span>
+        </p>
+        <p>
+            <i class="fa fa-arrow-up fa-2x"></i>
+            <span>升级还需积分：</span>
+            <span th:if="${session.user==null}"></span>
+            <span th:if="${session.user!=null&&session.user.member==null}" th:text="50-${session.user.score}"></span>
+            <span th:if="${session.user!=null&&session.user.member!=null}" th:text="${session.user.member.max+1}-${session.user.score}"></span>
+        </p>
+    </div>
+</div>

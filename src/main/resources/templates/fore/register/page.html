@@ -1,0 +1,69 @@
+<div class="register" th:fragment="html">
+    <h3>欢迎注册</h3>
+    <form id="registerForm" onsubmit="return false;" @submit="register" control="name,email">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td>
+                    <input id="name" type="text" name="name" class="form-control validate[required,custom[onlyLetterNumber],minSize[6],maxSize[10]]"
+                           :url="getUrl('/validate/userName')" error="用户已存在" success="可以使用" placeholder="请输入您的用户名" v-model.trim="user.name">
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>
+                    <input id="pass" type="password" class="form-control validate[required,minSize[6],maxSize[20]] text-input" placeholder="请输入您的密码" v-model.trim="user.password">
+                </td>
+            </tr>
+            <tr>
+            <tr>
+                <td>确认密码：</td>
+                <td>
+                    <input type="password" class="form-control validate[required,equals[pass]] text-input" placeholder="请再次输入您的密码">
+                </td>
+            </tr>
+            <tr>
+                <td>昵称：</td>
+                <td><input type="text" class="form-control validate[required,minSize[1],maxSize[10],custom[onlyLetterNumber]]" placeholder="请输入您的昵称" v-model.trim="user.nickName"></td>
+            </tr>
+
+            <tr>
+                <td>性别：</td>
+                <td >
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="inlineRadio1" value="0" v-model="user.sex">
+                        <label for="inlineRadio1">男</label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" id="inlineRadio2" value="1" v-model="user.sex">
+                        <label for="inlineRadio2">女</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>移动电话：</td>
+                <td><input type="text" class="form-control validate[required,custom[phone]]" placeholder="请输入您的移动电话" v-model.trim="user.mobile"></td>
+            </tr>
+            <tr>
+                <td>联系地址：</td>
+                <td><input type="text" class="form-control validate[required,custom[chinese]]" placeholder="请输入您的联系地址" v-model.trim="user.address"></td>
+            </tr>
+            <tr>
+                <td>个人邮箱：</td>
+                <td>
+                    <input id="email" name="email" class="form-control validate[required,custom[email]]" type="email" placeholder="请输入您的个人邮箱" v-model.trim="user.email"
+                           :url="getUrl('/validate/userEmail')" error="邮箱已被绑定" success="可以使用">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-success" style="width: 40%" type="submit">注册</button>
+                    <button class="btn btn-default" style="width: 40%" @click="reset">重置</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</div>

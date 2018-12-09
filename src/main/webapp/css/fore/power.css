@@ -1,0 +1,66 @@
+.power{
+    width: 100%;
+    margin: 10px auto;
+}
+.power .power_background{
+    width: 100%;
+    position: relative;
+}
+.power .power_background>img{
+    width: 100%;
+    z-index: -1;
+}
+.power .power_background .power_title img{
+    position: absolute;
+    left: 88px;
+    top: 46px;
+}
+.power .power_background .power_title .power_title_top{
+    position: absolute;
+    left: 106px;
+    top: 58px;
+}
+.power .power_background .power_title .power_title_right{
+    position: absolute;
+    right:  100px;
+    top: 140px;
+    text-align: center;
+    color: white;
+}
+.power .power_background .power_title .power_title_bottom{
+    position: absolute;
+    left: 150px;
+    top: 174px;
+}
+.power .power_background .power_title .power_title_bottom .redSpan{
+    color: #fa5555;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.power .power_background .power_title .power_title_bottom button{
+    width: 150px;
+    margin: 10px 0;
+}
+.power .power_background .power_title .power_title_bottom p{
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+}
+.power .power_text{
+    width: 80%;
+    margin: 20px auto;
+    line-height: 2em;
+    font-size: 14px;
+}
+.power .power_text .line{
+    width: 320px;
+    margin: 30px auto;
+    background:url("../../image/site/power_text_bg.png") center repeat-x;
+    text-align: center;
+}
+.power .power_text .line span{
+    font-size: 20px;
+    background: #fff;
+    padding: 0 20px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('权限管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/tree/bootstrap-treeview.min.css}">
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/manager.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="roleList">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li><a th:href="@{/admin/manager/role}">角色列表</a></li>
+            <li class="active">权限设置</li>
+        </ol>
+        <div class="treeDIV">
+            <div style="width: 30%">
+                <div id="treeview-checkable"></div>
+            </div>
+            <div style="width: 60%">
+                <div class="myRole">
+                    <div v-for="operation in operations" class="showTree">
+                        <div v-for="(ope) in operation">
+                            <div class="checkbox checkbox-success" style="margin-bottom: 10px">
+                                <input type="checkbox" name="operationCheckBox" class="styled" :id="ope.id" :value="ope.id" @click="update(ope.id,$event)">
+                                <label :for="ope.id"> {{ope.desc}} </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/tree/bootstrap-treeview.min.js}"></script>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/permission.js}"></script>
+</body>

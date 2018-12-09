@@ -1,0 +1,49 @@
+<div th:fragment="html" class="container">
+    <div id="editPowerModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editPowerModel"
+         aria-hidden="true">
+        <div class="modal-dialog editPowerModelDialog">
+            <div class="modal-content editPowerModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">修改权限</h4>
+                </div>
+                <form id="updateForm" onsubmit="return false;" @submit="updateButton(power.id)">
+
+                    <div class="modal-body">
+                        <div class="messageReplyDIV">
+                            <table>
+                                <tr>
+                                    <td>权限标题：</td>
+                                    <td><input type="text" class="form-control validate[required,maxSize[10]]" style="width: 300px;"
+                                               v-model="power.title"></td>
+                                </tr>
+                                <tr>
+                                    <td>文章内容：</td>
+                                    <td><textarea :id="'editor_'+power.id" name="content"
+                                                  style="width:700px;height:300px;" placeholder="请输入你的文章"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>所需积分：</td>
+                                    <td><input type="text" class="form-control validate[required,custom[number]]" v-model="power.score"></td>
+                                </tr>
+                                <tr>
+                                    <td>图标(可选)：</td>
+                                    <td><input type="file" class="form-control" @change="setFile($event)"></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-default" type="submit">发送</button>
+                        <button data-dismiss="modal" class="btn btn-default">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

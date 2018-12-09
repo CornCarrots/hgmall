@@ -1,0 +1,10 @@
+<div class="member_lunbo" th:fragment="html">
+    <div id="myCarouse3" class="carousel slide" data-ride="carousel" data-interval="1000">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="item" v-for="car in carousels" :class="{active:car.role==1}">
+                <img :src="getCarousel(car.id)" :alt="'lunbo'+car.id">
+            </div>
+        </div>
+    </div>
+</div>

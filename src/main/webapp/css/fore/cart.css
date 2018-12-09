@@ -1,0 +1,199 @@
+.shoppingCar{
+    width: 75%;
+    margin: 10px auto;
+}
+.shoppingCarBar{
+    width: 100.5%;
+}
+.shoppingCarButton{
+    width: 88%;
+    display: inline-block;
+    padding: 10px 5px;
+    height: 50px;
+    vertical-align: middle;
+    /*height: 50px;*/
+    background-color: #e5e5e5;
+}
+.shoppingCarButton .shoppingCarButton_all{
+    /*height: 50px;*/
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-family: Arial;
+    /*line-height: 10px;*/
+}
+.shoppingCar .selectAllItem{
+    cursor: pointer;
+}
+.shoppingCarButton .shoppingCarButton_all span{
+    position: relative;
+    top: 1px;
+}
+.shoppingCarButton .shoppingCarButton_right{
+    float: right;
+    font-size: 12px;
+    font-family: Arial;
+}
+.shoppingCarButton .shoppingCarButton_right .shoppingCarButton_select{
+    position: relative;
+    top: -2px;
+}
+.shoppingCarButton .shoppingCarButton_selectNum{
+    font-size: 16px;
+    color: #C40000;
+    font-weight: bold;
+}
+.shoppingCarButton .shoppingCarButton_price{
+    font-size: 21px;
+    color: #C40000;
+    font-weight: bold;
+    margin: 0 15px;
+}
+.shoppingCarButton_buy{
+    width: 12%;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+    left: -4px;
+    top: 4px;
+}
+.shoppingCarButton_buy button {
+    width: 100%;
+    height: 50px;
+    border: 0px solid #aaa;
+    background-color: #aaaaaa;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+.shoppingCarInfo{
+    /*width: 80%;*/
+    margin: 5px 0;
+    /*padding: 10px ;*/
+    font-size: 12px;
+
+}
+.shoppingCarInfo .shoppingCarInfoRight{
+    font-size: 10px;
+    float: right;
+    margin: 15px 0;
+}
+.shoppingCarInfo .shoppingCarInfoRight .shoppingCarInfoRight_price{
+    color: #C40000;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 5px;
+
+}
+.shoppingCarInfo .shoppingCarInfoRight .shoppingCarInfoRight_button button{
+    width: 80px;
+    height: 25px;
+    padding: 4px;
+    border: 0px solid #aaa;
+    background-color: #aaaaaa;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 2px;
+}
+.shoppingCarInfo .clear{
+    clear: both;
+}
+.shoppingCarInfo .mytable_head{
+    width: 100%;
+    border-bottom: 2px solid #e6e6e6;
+}
+.shoppingCarInfo .mytable_head th{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.shoppingCarInfo .mytable_head th:first-child{
+    width: 30%;
+    text-align: left;
+    padding-left: 20px;
+}
+.shoppingCarInfo .mytable_head th:nth-child(2){
+    text-align: left;
+}
+.shoppingCarInfo .mytable{
+    margin: 10px 0;
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+.shoppingCarInfo .mytable tr {
+    border: 1px solid #ccc;
+}
+.shoppingCarInfo .mytable tr:first-child {
+    border: 0px;
+    text-align: left;
+}
+.shoppingCarInfo .mytable  tr td{
+    padding: 20px;
+}
+.shoppingCarInfo .mytable  tr:first-child td{
+    /*padding: 20px;*/
+}
+.shoppingCarInfo .shoppingCarInfo_select{
+    width: 15%;
+}
+.shoppingCarInfo .shoppingCarInfo_select .shoppingCarInfo_isselect{
+    cursor: pointer;
+}
+.shoppingCarInfo .shoppingCarInfo_select .shoppingCarInfo_selectImg{
+    padding: 1px;
+    border: 1px solid #EEEEEE;
+    width: 80px;
+    height: 80px;
+}
+.shoppingCarInfo .shoppingCarInfo_name{
+    width: 40%;
+}
+.shoppingCarInfo .shoppingCarInfo_name .shoppingCarInfo_title{
+    display: block;
+    margin-bottom:30px;
+}
+.shoppingCarInfo .shoppingCarInfo_name .shoppingCarInfo_title a{
+    color: #3c3c3c;
+}
+.shoppingCarInfo .shoppingCarInfo_name .shoppingCarInfo_title a:hover{
+    color: #C40000;
+    text-decoration: underline;
+}
+.shoppingCarInfo .shoppingCarInfo_name .shoppingCarInfo_imgs{
+
+    text-align: left;
+}
+.shoppingCarInfo .shoppingCarInfo_price,.shoppingCarInfo_sum{
+    width: 10%;
+    font-weight: bold;
+    font-size: 14px;
+    color: #C40000;
+}
+.shoppingCarInfo .shoppingCarInfo_price .shoppingCarInfo_orignPrice{
+    text-decoration: line-through;
+    color: #9c9c9c;
+}
+
+.shoppingCarInfo .shoppingCarInfo_number{
+    width: 13%;
+    /*border: solid 1px #E5E5E5;*/
+}
+.shoppingCarInfo .shoppingCarInfo_number a{
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+}
+.shoppingCarInfo .shoppingCarInfo_number input{
+    width: 42px;
+    height: 19px;
+    border: solid 1px #AAAAAA;;
+}
+.shoppingCarInfo .shoppingCarInfo_sum{
+    width: 13%;
+}

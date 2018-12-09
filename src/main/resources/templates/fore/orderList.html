@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/include/time_axis/component.css}">
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/dialog/jquery-confirm.min.css}">
+<link rel="stylesheet" th:href="@{/js/include/kindeditor/themes/default/default.css}">
+<link rel="stylesheet" th:href="@{/css/fore/message.css}">
+<link rel="stylesheet" th:href="@{/css/fore/order.css}">
+<body>
+<div th:replace="fore/include/top::html"></div>
+<div th:replace="fore/include/nav::html"></div>
+<div class="main">
+    <div th:replace="fore/orderList/bar::html"></div>
+    <div th:replace="fore/orderList/list::html"></div>
+    <div th:replace="fore/modal/exchange::html"></div>
+    <div th:replace="fore/modal/logistics::html"></div>
+    <div th:replace="fore/modal/sendStore::html"></div>
+
+</div>
+<div th:replace="fore/include/footer::html"></div>
+<script th:src="@{/js/include/dialog/jquery-confirm.min.js}"></script>
+<script th:src="@{/js/include/kindeditor/kindeditor-all.js}"></script>
+<script th:src="@{/js/include/kindeditor/lang/zh-CN.js}"></script>
+<script th:src="@{/js/fore/orderList.js}"></script>
+</body>

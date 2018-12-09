@@ -1,0 +1,139 @@
+body{
+    height: 100%;
+}
+::-webkit-scrollbar{
+    display:none;
+}
+.back_header{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #438eb9;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+.back_header span{
+    margin: 0 5px;
+    color: white;
+}
+.back_header a{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+/*.back_header button{*/
+    /*width: 50px;*/
+/*}*/
+.back_header .header_Bigtitle{
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+}
+.back_navigation{
+    z-index: 998;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 220px;
+    height: 100%;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.back_navigation a{
+    color: grey;
+    font-size: 14px;
+    text-decoration: none;
+}
+.back_navigation a:hover{
+    color: #3898d2;
+}
+.fa-angle-down{
+    float: right;
+    margin-right: 20px;
+}
+.back_navigation .accordion .accordion-heading{
+    /*margin: 10px 0;*/
+    height: 40px;
+    padding: 10px  ;
+    background-color: #f9f9f9;
+    position: relative;
+}
+.back_navigation .accordion .accordion-heading i{
+    margin-right: 10px;
+}
+.back_navigation .accordion .accordion-heading:hover{
+    background: white;
+    color: #3898d2;
+}
+.back_navigation .accordion .accordion-group .accordion-body .accordion-inner{
+    margin: 0px 40px;
+    height: 50px;
+    padding: 15px 0;
+}
+.back_navigation .accordion .accordion-group .accordion-body .accordion-inner:hover{
+    color: white;
+}
+.container{
+    overflow-y: scroll;
+    width: 80%;
+    margin-left: 230px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+#search{
+    vertical-align: top;
+    width: 35%;
+    /*display:inline-block;*/
+    float: right;
+}
+#search .input-group{
+    width: 100%;
+}
+#checkAll{
+    width: 50px;
+}
+.checkbox input{
+    outline: none;
+}
+.treeDIV>div:first-child{
+    float: left;
+    width: 19%;
+}
+.treeDIV>div:last-child{
+    float: left;
+    width: 79%;
+    margin-left:10px;
+}
+footer{
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin:  0px auto;
+    text-align: center;
+}
+.pageDiv{
+    margin: 10px auto;
+    text-align: center;
+}
+.notfound_search,.notfound_list
+{
+    display: none;
+}
+.notfound_search .bigFont,.notfound_list .bigFont{
+    font-size: 16px;
+}
+.notfound_search .redFont,.notfound_list .redFont{
+    color: red;
+}
+.root{
+    background-color: #f8d347;
+}

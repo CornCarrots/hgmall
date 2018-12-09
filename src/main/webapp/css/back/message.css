@@ -1,0 +1,53 @@
+.back_message_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+
+.back_message_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_message_list_table thead{
+    background: #edf1f6;
+    text-align: center;
+}
+.back_message_list_table thead tr th{
+    text-align: center;
+}
+.back_message_list_table tbody tr td{
+    vertical-align: middle;
+}
+.back_message_list_table .detail{
+    display: inline-block;
+    margin-left: 10px;
+}
+.messageInfoModelDialog{
+    width: 60%;
+}
+.messageInfoModelContent{
+    height: 100%;
+}
+.messageInfoTable{
+    width: 80%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.messageInfoTable tr td:first-child{
+    text-align: right;
+    padding-right: 5px;
+}
+.messageInfoTable .messageInfoP{
+    width: 500px;
+    border: 1px solid #ebebeb;
+    padding: 6px;
+    text-align: left;
+}
+.messageInfoTable .messageInfoP p{
+    text-indent: 2em;
+}
+#messageReply{
+    resize: none;
+    width: 100%;
+}

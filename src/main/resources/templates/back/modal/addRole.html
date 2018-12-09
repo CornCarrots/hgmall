@@ -1,0 +1,44 @@
+<div th:fragment="html" class="container">
+    <div id="addRoleModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addRoleModel"
+         aria-hidden="true">
+        <div class="modal-dialog addRoleModelDialog">
+            <div class="modal-content addRoleModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加角色</h4>
+                </div>
+                <form id="addForm" onsubmit="return false;" @submit="addRole">
+
+                    <div class="modal-body">
+                        <div class="addRole">
+                            <table>
+                                <tr>
+                                    <td>角色名</td>
+                                    <td>
+                                        <input style="width: 220px;" type="text" placeholder="请输入角色名称"
+                                               class="form-control validate[required]" v-model="role.name">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>角色描述</td>
+                                    <td>
+                                        <input style="width: 220px;" type="text" placeholder="请输入角色描述"
+                                               class="form-control validate[required]" v-model="role.desc">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-success" type="submit">提交</button>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

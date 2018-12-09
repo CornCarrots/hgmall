@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/fore/store.css}">
+<body>
+<div th:replace="fore/include/top::html" ></div>
+<div th:replace="fore/include/nav::html" ></div>
+<div class="success">
+    <img th:src="@{/image/site/registerSuccess.png}" alt="success">
+    <h3 class="greenSpan">恭喜您，申请成功！</h3>
+    <h3>需要等待1-3天的工作人员审核</h3>
+    <h3>请您留意邮箱，到时会通过邮件发给您</h3>
+    <a th:href="@{/home}">   <button class="btn btn-success btn-lg">返回首页</button></a>
+</div>
+<div th:replace="fore/include/footer::html" ></div>
+</body>

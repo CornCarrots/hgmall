@@ -1,0 +1,37 @@
+<div class="orderBar" th:fragment="html">
+    <div class="orderBar_title">
+        <span class="link_title" :class="{'red_title':type=='all'}" order="0"><a href="#no" @click="list('all')">所有订单</a></span>
+        <span class="gray_title">|</span>
+        <span class="link_title" :class="{'red_title':type=='type_waitPay'}" order="1"><a href="#no" @click="list('type_waitPay')">待付款</a></span>
+        <span class="gray_title">|</span>
+        <span class="link_title" :class="{'red_title':type=='type_waitDelivery'}" order="2"><a href="#no" @click="list('type_waitDelivery')">待发货</a></span>
+        <span class="gray_title">|</span>
+        <span class="link_title" :class="{'red_title':type=='type_waitConfirm'}"  order="3"><a href="#no" @click="list('type_waitConfirm')">待收货</a></span>
+        <span class="gray_title">|</span>
+        <span class="link_title" :class="{'red_title':type=='type_waitReview'}" order="4"><a href="#no" @click="list('type_waitReview')">待评价</a></span>
+        <span class="gray_title">|</span>
+        <span class="link_title" :class="{'red_title':type=='exchange'}" order="4"><a href="#no" @click="list('exchange')">售后处理</a></span>
+    </div>
+    <table class="orderBar_smallTitle">
+        <thead>
+        <tr>
+            <td class="orderBar_smallTitle_object" colspan="2">
+                <span>宝贝</span>
+            </td>
+            <td style="padding-left: 65px">
+                <span>单价</span>
+            </td>
+            <td style="padding-left: 46px">
+                <span>数量</span>
+            </td>
+            <td style="padding-left: 15px;">
+                <span>实付款</span>
+            </td>
+            <td>
+                <span>交易操作</span>
+            </td>
+        </tr>
+        </thead>
+    </table>
+</div>
+

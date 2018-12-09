@@ -1,0 +1,38 @@
+<div class="category_Product" th:fragment="html">
+    <div class="category_Product_list">
+        <div class="category_Product_item" v-for="product in products" :id="'p'+product.id">
+            <div class="category_Product_border">
+                <img :src="getImage('productSingle_middle',product.firstProductImage.id)" :alt="'product'+product.id" class="category_Product_image">
+                <div class="item_mytitle">
+                    <a :href="getProduct(product.id)" class="item_link" v-if="product.name.length>15">{{product.name | subStringFilter(0,15) }}...</a>
+                    <a :href="getProduct(product.id)" class="item_link" v-else>{{product.name}}</a>
+                </div>
+                <div class="item_mystore">
+                    <a :href="getStore(product.store.id)" v-if="product.store.name.length>11">店铺：{{product.store.name | subStringFilter(0,11)}}...</a>
+                    <a :href="getStore(product.store.id)" v-else>店铺：{{product.store.name}}</a>
+                </div>
+                <div>
+                    <span class="item_price1">￥{{product.promotePrice | formatMoneyFilter}}</span>
+                    <span style="text-decoration: line-through">￥{{product.originalPrice | formatMoneyFilter}} </span>
+                </div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="item_mybought">
+                            <span>销量</span>
+                            <span class="item_bought">{{product.sales}}</span>
+                        </td>
+                        <td class="item_mycomment">
+                            <span>评价</span>
+                            <span class="item_comment">{{product.reviews}}</span>
+                        </td>
+                        <td class="item_image">
+                            <a href=""><i class="fa fa-envelope fa-2x"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

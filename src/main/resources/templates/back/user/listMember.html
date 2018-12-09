@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('用户管理')"></head>
+<link rel="stylesheet" th:href="@{/css/back/user.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_user_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">所有会员</li>
+        </ol>
+        <div style="margin-bottom: 10px;width: 100%;height: 30px">
+            <div id="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" v-model.lazy="key">
+                    <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed back_user_list_table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>手机</th>
+                <th>邮箱</th>
+                <th width="30%">地址</th>
+                <th>等级</th>
+                <th>积分</th>
+                <th>状态</th>
+                <th colspan="2">编辑</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="member in members">
+                <td>{{member.id}}</td>
+                <td>{{member.name}}</td>
+                <td v-if="member.sex=='0'"><i class="fa fa-male"></i></td>
+                <td v-if="member.sex=='1'"><i class="fa fa-female"></i></td>
+                <td>{{member.mobile}}</td>
+                <td>{{member.email}}</td>
+                <td>{{member.address}}</td>
+                <td><i class="fa fa-diamond" :style="{color:member.member.icon}"></i> {{member.member.name}}</td>
+                <td>{{member.score}}</td>
+                <td><span class="label" :class="member.status==0?'label-success':'label-danger'">{{member.status | statusFilter}}</span></td>
+                <td><a href="#no" @click="checkUser(member.id)"><span class="fa fa-check"></span></a></td>
+                <td><a href="#no" @click="shieldUser(member.id)"><span class="fa fa-close"></span></a></td>            </tr>
+            </tbody>
+        </table>
+        <div th:replace="back/include/404_list::html('会员')"></div>
+        <div th:replace="back/include/404_search::html('{{key}}','会员')"></div>
+    </div>
+    <div th:replace="back/include/page::html"></div>
+
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/back/member.js}"></script>
+</body>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/dialog/jquery-confirm.min.css}">
+<link rel="stylesheet" th:href="@{/css/fore/view.css}">
+<body>
+<div th:replace="fore/include/top::html" ></div>
+<div th:replace="fore/include/nav::html" ></div>
+<div class="main">
+    <div th:replace="fore/view/img::html" ></div>
+    <div th:replace="fore/view/page::html" ></div>
+    <div th:replace="fore/modal/addMessage::html" ></div>
+</div>
+<div th:replace="fore/include/footer::html" ></div>
+<script th:src="@{/js/include/dialog/jquery-confirm.min.js}" ></script>
+<script th:src="@{/js/fore/view.js}" ></script>
+</body>

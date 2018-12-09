@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/include/dialog/jquery-confirm.min.css}">
+<link rel="stylesheet" th:href="@{/css/fore/power.css}">
+<body>
+<div th:replace="fore/include/top::html" ></div>
+<div th:replace="fore/include/nav::html" ></div>
+<div class="main" style="margin-top: 95px">
+    <div class="power">
+        <div class="power_background">
+            <img th:src="@{/image/site/power_bg.png}" alt="power_bg">
+            <div th:replace="fore/power/title::html" ></div>
+            <div th:replace="fore/power/text::html" ></div>
+
+        </div>
+    </div>
+</div>
+<div th:replace="fore/include/footer::html" ></div>
+<script th:src="@{/js/include/dialog/jquery-confirm.min.js}" ></script>
+<script th:src="@{/js/fore/power.js}" ></script>
+
+</body>

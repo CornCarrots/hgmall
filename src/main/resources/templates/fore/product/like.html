@@ -1,0 +1,43 @@
+<div class="product_like" th:fragment="html">
+    <h4>
+        您可能还喜欢
+    </h4>
+    <div class="category_Product" style="width: 100%;margin: 0 auto">
+        <div class="category_Product_list">
+            <div class="category_Product_item" v-for="product in products" :id="'p'+product.id">
+                <div class="category_Product_border">
+                    <img :src="getImage('productSingle_middle',product.firstProductImage.id)" :alt="'product'+product.id" class="category_Product_image">
+                    <div class="item_mytitle">
+                        <a :href="getProduct(product.id)" class="item_link" v-if="product.name.length>20">{{product.name | subStringFilter(0,20)}}...</a>
+                        <a :href="getProduct(product.id)" class="item_link" v-else>{{product.name}}</a>
+                    </div>
+                    <div>
+                        <span class="item_price1">￥{{product.promotePrice | formatMoneyFilter}}</span>
+                        <span style="text-decoration: line-through">￥{{product.originalPrice | formatMoneyFilter}}</span>
+                    </div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="item_mybought">
+                                <span>月成交</span>
+                                <span class="item_bought">{{product.sales}}笔</span>
+                            </td>
+                            <td class="item_mycomment">
+                                <span>评价</span>
+                                <span class="item_comment">{{product.reviews}}</span>
+                            </td>
+                            <td class="item_image">
+                                <a href=""><i class="fa fa-envelope fa-2x"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="pager">
+        <li :class="{ disabled: !pages.hasPrevious }"><a  href="#prev" @click="jump('pre')">上一页</a></li>
+        <li :class="{ disabled: !pages.hasNext }"><a  href="#next" @click="jump('next')">下一页</a></li>
+    </ul>
+</div>

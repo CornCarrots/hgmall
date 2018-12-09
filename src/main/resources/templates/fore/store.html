@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fore/include/header::html('零号商城')"></head>
+<link rel="stylesheet" th:href="@{/css/fore/home.css}">
+<body>
+<div th:replace="fore/include/top::html" ></div>
+<div th:replace="fore/include/nav::html" ></div>
+<div class="main">
+    <div th:replace="fore/store/img::html" ></div>
+    <div th:replace="fore/store/page::html" ></div>
+</div>
+<div th:replace="fore/include/footer::html" ></div>
+<script th:src="@{/js/fore/store.js}" ></script>
+</body>

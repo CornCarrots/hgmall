@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('系统管理')"></head>
+<link rel="stylesheet" th:href="@{/css/back/option.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_option_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">系统设置</li>
+        </ol>
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#setting" data-toggle="tab">
+                    系统设置
+                </a>
+            </li>
+            <li><a href="#log" data-toggle="tab">系统日志</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="setting">
+                <table class="back_settion_list_table">
+                    <tr>
+                        <td>网站名称</td>
+                        <td><input type="text" class="form-control" v-model.lazy="option.name"></td>
+                    </tr>
+                    <tr>
+                        <td>网站图标</td>
+                        <td><input type="file" class="form-control" @change="getFile($event)"></td>
+                    </tr>
+                    <tr>
+                        <td>关键词 <br>(以空格隔开)</td>
+                        <td><input type="text" class="form-control" v-model.lazy="option.key"></td>
+                    </tr>
+                    <tr>
+                        <td>网站描述</td>
+                        <td><input type="text" class="form-control" v-model.lazy="option.desc"></td>
+                    </tr>
+                    <tr>
+                        <td>版权信息</td>
+                        <td><input type="text" class="form-control" v-model.lazy="option.right"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-success" @click="update">保存</button>
+                            <button class="btn btn-default" @click="reset">取消</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="log">
+                <div style="margin: 10px 0;width: 100%;height: 30px">
+                    <div id="search">
+                        <div class="input-group">
+                            <input class="form-control" type="text" v-model.lazy="key">
+                            <span class="input-group-btn">
+                         <button class="btn btn-info" @click="search"><i class="fa fa-search"> 搜索</i></button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover table-striped table-condensed back_option_list_table">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>登录用户</th>
+                        <th>角色</th>
+                        <th style="width: 50%">操作内容</th>
+                        <th>操作时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="log in logs">
+                        <td>{{log.id}}</td>
+                        <td>{{log.manager.name}}</td>
+                        <td>
+                            <p v-for="role in log.manager.roles">{{role.desc}}</p>
+                        </td>
+                        <td>{{log.text}}</td>
+                        <td>{{log.createDate | formatDateFilter}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div th:replace="back/include/404_list::html('日志')"></div>
+                <div th:replace="back/include/404_search::html('{{key}}','日志')"></div>
+                <div th:replace="back/include/page::html"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/back/option.js}"></script>
+</body>

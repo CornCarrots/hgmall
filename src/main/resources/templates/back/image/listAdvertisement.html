@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('轮播图管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/checkbox/awesome-bootstrap-checkbox.css}">
+<link rel="stylesheet" th:href="@{/css/include/select/bootstrap-select.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/image.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="advertisingDIV">
+        <div class="advertisingButton">
+            <button class="btn btn-warning" @click="addButton"><i class="fa fa-plus"> 添加广告</i></button>
+            <button class="btn btn-danger" @click="deleteAllButton"><i class="fa fa-trash"> 批量删除</i></button>
+        </div>
+        <table class="table table-bordered table-hover table-striped table-condensed">
+            <thead>
+            <tr>
+                <th id="checkAllTH">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="checkAll" value="">
+                        <label for="checkAll"></label>
+                    </div>
+                </th>
+                <th>ID</th>
+                <th>分类</th>
+                <th class="mainImage">图片</th>
+                <th>状态</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="adv in advertisements">
+                <td class="checkOne">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" :id=adv.id :value=adv.id name="advertisementCheckbox">
+                        <label :for=adv.id></label>
+                    </div>
+                </td>
+                <td>{{adv.id}}</td>
+                <td>{{adv.type | typeFilter}}</td>
+                <td><img width="100%" :src="getImage(adv.id,adv.type)"></td>
+                <td v-if="adv.status==1"><span class="label label-success">启用</span></td>
+                <td v-if="adv.status==0"><span class="label label-danger">禁用</span></td>
+                <td><a href="#no" @click="editAdvertisement_(adv.id)"><span class="fa fa-edit"></span></a></td>
+                <td><a href="#no" @click="deleteAdvertisement(adv.id)"><span class="fa fa-trash"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="back/modal/addAdvertisement::html"></div>
+    <div th:replace="back/modal/editAdvertisement::html"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/select/bootstrap-select.js}"></script>
+<script th:src="@{/js/back/advertisement.js}"></script>
+</body>

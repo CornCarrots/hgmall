@@ -1,0 +1,28 @@
+.view{
+    width: 100%;
+    margin:  30px auto;
+    padding: 30px 10px;
+    text-align: center;
+}
+.view h1{
+    color: #fa5555;
+}
+.view table{
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+    background-color: #f8f8f8;
+    padding: 10px 40px;
+}
+.view table tr td:last-child{
+    text-align: left;
+}
+#addMessage{
+    resize: none;
+    width: 100%;
+}
+#sendButton{
+    width: 60%;
+    margin: 0 auto;
+}

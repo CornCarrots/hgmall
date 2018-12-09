@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('交易详情')"></head>
+<link rel="stylesheet" th:href="@{/css/back/sales.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+        <li class="active">交易分布</li>
+    </ol>
+    <div id="mapDIV" style="width: 1000px;height:600px;"></div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/echart/echarts.min.js}"></script>
+<script th:src="@{/js/include/echart/china.js}"></script>
+<script th:src="@{/js/back/saleMap.js}"></script>
+</body>

@@ -1,0 +1,70 @@
+<div th:fragment="html" class="container">
+    <div id="editArticleModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editArticleModel"
+         aria-hidden="true">
+        <div class="modal-dialog editArticleModelDialog">
+            <div class="modal-content editArticleModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">编辑文章</h4>
+                </div>
+                <form id="updateForm" onsubmit="return false;" @submit="updateButton(article.id)">
+
+                <div class="modal-body">
+                    <div class="messageReplyDIV">
+                        <table>
+                            <tr>
+                                <td>文章标题：</td>
+                                <td><input type="text" class="form-control validate[required,maxSize[10]]" style="width: 300px;" v-model="article.title"></td>
+                            </tr>
+                            <tr>
+                                <td>文章简介：</td>
+                                <td><input type="text" class="form-control validate[required]" v-model="article.summary" ></td>
+                            </tr>
+                            <tr>
+                                <td>所属分类：</td>
+                                <td>
+                                    <div class="dropdown bootstrap-select">
+                                        <select class="selectpicker validate[required]" id="editSelect" data-style="btn-success" tabindex="-98"  v-model="article.cid">
+                                            <!--<option v-for="option in categories"  :value="option.id" :selected="option.id==article.cid">-->
+                                                <!--{{ option.name }}-->
+                                            <!--</option>-->
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>文章状态：</td>
+                                <td>
+                                    <div class="radio radio-info radio-inline">
+                                        <input type="radio" id="inlineRadio1" value="0" v-model="article.status">
+                                        <label for="inlineRadio1">发布</label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="inlineRadio2" value="1" v-model="article.status">
+                                        <label for="inlineRadio2">草稿</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>文章内容：</td>
+                                <td>
+                    <textarea :id="'editor_'+article.id" name="content" style="width:700px;height:300px;"
+                              placeholder="请输入你的文章"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button class="btn btn-default" type="submit">发送</button>
+                    <button data-dismiss="modal" class="btn btn-default">取消</button>
+                </div>
+                <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

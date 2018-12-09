@@ -1,0 +1,26 @@
+<div class="index_product" th:fragment="html">
+    <div class="index_myproduct" v-for="cat in categories">
+        <div class="index_myproduct_title">
+            <i :class="'fa '+cat.icon+' fa-2x'"></i>
+            <b><a :href="getCategory(cat.id)">{{cat.name}}</a></b>
+            <span>
+               <a :href="getProduct(product.id)" v-for="product in cat.productShow" v-if="product.subTitle.length!=0">
+                   <i class="fa fa-plus"></i>{{product.subTitle | splitFilter }}
+                </a>
+                <a :href="getCategory(cat.id)">
+                    全部 <i class="fa fa-caret-right"></i>
+                </a>
+            </span>
+        </div>
+        <div class="index_myproduct_content" v-for="product in cat.productShow">
+            <a :href="getProduct(product.id)"><img v-if="product.firstProductImage!=null" :src="getImage(product.firstProductImage.id)" :alt="'product'+product.id"></a>
+            <a :href="getProduct(product.id)">
+                <div class="myproduct_content" v-if="product.name.length>20">{{product.name | subStringFilter(0,20)}}...</div>
+                <div class="myproduct_content" v-else>{{product.name}}</div>
+                <div class="myproduct_price">￥{{product.promotePrice | formatMoneyFilter}}
+                    <span>￥{{product.originalPrice | formatMoneyFilter}} </span></div>
+            </a>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>

@@ -1,0 +1,12 @@
+<header class="back_header" th:fragment="html" xmlns:th="http://www.thymeleaf.org">
+    <span class="header_Bigtitle">浩歌商城后台</span>
+    <span class="pull-right">
+        <span>
+            <img th:src="@{'/image/profile_manager/'+${session.manager.id}+'.jpg'}" alt="profile_manager" width="30px" height="30px">
+            <span th:text="'欢迎您:'+${session.manager.nickName}"></span>
+        </span>
+        <button class="btn btn-info"><a th:href="@{/home}"><span class="fa fa-power-off"> 前台</span></a></button>
+        <span class="btn btn-info"><a th:href="@{/admin/logout}"><span class="fa fa-power-off"> 退出</span></a></span>
+
+    </span>
+</header>

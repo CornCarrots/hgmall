@@ -1,0 +1,17 @@
+<div class="category_sortAndPrice" th:fragment="html">
+    <div><i class="fa fa-th-list fa-2x"> Sort：</i></div>
+    <div class="category_mysort">
+        <span class="category_sort active" ><a href="#no" @click="sort('all',$event)">综合 <i class="fa fa-sort-alpha-desc"></i></a></span>
+        <span class="category_sort"><a href="#no" @click="sort('review',$event)">人气<i class="fa fa-sort-amount-desc"></i></a></span>
+        <span class="category_sort"><a href="#no" @click="sort('date',$event)">新品<i class="fa fa-sort-amount-desc"></i></a></span>
+        <span class="category_sort"><a href="#no" @click="sort('sale',$event)">销量<i class="fa fa-sort-numeric-desc"></i></a></span>
+        <span class="category_sort"><a href="#no" @click="sort('price',$event)">价格 <i class="fa fa-sort-numeric-desc"></i></a></span>
+    </div>
+    <div class="category_price">
+        <div class="input-group" style="display: inline-table">
+            <input type="text" placeholder="请输入" id="lowPrice">
+            <span class="input-group-addon category_sort active">-</span>
+            <input type="text" placeholder="请输入" id="highPrice">
+        </div>
+    </div>
+</div>

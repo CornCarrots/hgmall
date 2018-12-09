@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('订单管理')"></head>
+<link rel="stylesheet" th:href="@{/css/back/sales.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_order_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li><a th:href="@{/admin/sale/exchange}">售后列表</a></li>
+            <li class="active">查看订单</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-heading">订单信息</div>
+            <div class="panel-body">
+                <p>订单编号：<span class="orderItemNumber">{{order.orderCode}}</span></p>
+                <table class="table table-bordered table-hover table-striped table-condensed back_order_list_table">
+                    <thead>
+                    <tr>
+                        <th>商品</th>
+                        <th width="15%">名称</th>
+                        <th>数量</th>
+                        <th>单价</th>
+                        <th>状态</th>
+                        <th>支付方式</th>
+                        <th>快递名称</th>
+                        <th style="width: 10%">创建时间</th>
+                        <th style="width: 10%">支付时间</th>
+                        <th style="width: 10%">发货时间</th>
+                        <th style="width: 10%">确认收货时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="item,index in orderItems">
+                        <td><img :src="getImage(item.product.firstProductImage.id)" alt=""></td>
+                        <td><a href="#no">{{item.product.name}}</a></td>
+                        <td>{{item.number}}</td>
+                        <td>￥{{item.product.promotePrice | formatMoneyFilter}}</td>
+                        <td v-if="index==0" :rowspan="orderItems.length"><span class="label" :class="order.status=='type_success'?'label-success':order.status=='type_fail'?'label-danger':'label-warning'">{{order.status | statusFilter}}</span></td>
+                        <td v-if="index==0" :rowspan="orderItems.length">{{order.payment | paymentFilter}}</td>
+                        <td v-if="index==0" :rowspan="orderItems.length">{{order.express | expressFilter}}</td>
+                        <td v-if="index==0&&order.createDate!==undefined" :rowspan="orderItems.length">{{order.createDate | formatDateFilter}}</td>
+                        <td v-if="index==0&&order.payDate!==undefined" :rowspan="orderItems.length">{{order.payDate | formatDateFilter}}</td>
+                        <td v-if="index==0&&order.deliveryDate!==undefined" :rowspan="orderItems.length">{{order.deliveryDate | formatDateFilter}}</td>
+                        <td v-if="index==0&&order.confirmDate!==undefined" :rowspan="orderItems.length">{{order.confirmDate | formatDateFilter}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">收件人信息</div>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover table-striped table-condensed back_order_list_table">
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>电话</th>
+                        <th>邮编</th>
+                        <th>地址</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{order.receiver}}</td>
+                        <td>{{order.mobile}}</td>
+                        <td>{{order.post}}</td>
+                        <td>{{order.address|addressFilter}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">说明</div>
+            <div class="panel-body">
+                <p>{{order.exchange.describe}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/back/orderItem_exchange.js}"></script>
+</body>

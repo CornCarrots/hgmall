@@ -1,0 +1,19 @@
+.register{
+    margin: 10px 185px;
+    padding: 20px 30px;
+    text-align: center;
+}
+.register table{
+    width: 60%;
+    margin-left: 190px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    table-layout: fixed;
+}
+.register table tbody tr td:first-child{
+    width: 15%;
+    text-align: right;
+}
+.register .radio{
+    margin: 0 30px;
+}

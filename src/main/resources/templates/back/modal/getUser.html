@@ -1,0 +1,113 @@
+<div th:fragment="html" class="container">
+    <div id="userInfoModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="userInfoModel"
+         aria-hidden="true">
+        <div class="modal-dialog userInfoModelDialog">
+            <div class="modal-content userInfoModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true"
+                                                                                   class="addCategoryNo">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">用户信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="userInfo_information">
+                        <img :src="getImage(user.id)" alt="" class="pull-left" width="60px">
+                        <table>
+                            <tr>
+                                <td>账户名：</td>
+                                <td>{{user.name}}</td>
+                                <td>账户余额：</td>
+                                <td>￥{{user.account | formatMoneyFilter }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户注册时间：</td>
+                                <td>{{user.registerDate | formatDateFilter}}</td>
+                                <td>账户开通时间：</td>
+                                <td>{{user.openDate | formatDateFilter }}</td>
+                            </tr>
+                            <tr>
+                                <td>性别：</td>
+                                <td>{{user.sex | sexFilter}}</td>
+                                <td>地址：</td>
+                                <td>{{user.address}}</td>
+                            </tr>
+                            <tr>
+                                <td>联系方式：</td>
+                                <td>{{user.mobile}}</td>
+                                <td>邮箱：</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="userInfo_record">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#recharge" data-toggle="tab">
+                                    充值记录
+                                </a>
+                            </li>
+                            <li><a href="#consume" data-toggle="tab">
+                                消费记录
+                            </a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in active" id="recharge">
+                                <table class="table table-bordered table-hover table-striped table-condensed back_user_edit_table rechargeTable">
+                                    <thead>
+                                    <tr>
+                                        <th>充值序号</th>
+                                        <th>充值金额</th>
+                                        <th>充值时间</th>
+                                        <th>状态</th>
+                                        <th>备注</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="order in user.recharges">
+                                        <td>{{order.orderCode}}</td>
+                                        <td>￥{{order.sum | formatMoneyFilter }}</td>
+                                        <td>{{order.createDate | formatDateFilter }}</td>
+                                        <td><span
+                                                class="label label-warning">{{order.status | orderStatusFilter}}</span>
+                                        </td>
+                                        <td>{{order.userMessage}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div th:replace="back/include/404_list::html('充值记录')"></div>
+                            </div>
+                            <div class="tab-pane fade" id="consume">
+                                <table class="table table-bordered table-hover table-striped table-condensed back_user_edit_table expenseTable">
+                                    <thead>
+                                    <tr>
+                                        <th>订单编号</th>
+                                        <th>商品数量</th>
+                                        <th>消费金额</th>
+                                        <th>消费时间</th>
+                                        <th>状态</th>
+                                        <th>备注</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="order in user.expenses">
+                                        <td>{{order.orderCode}}</td>
+                                        <td>{{order.quantity}}</td>
+                                        <td>￥{{order.sum | formatMoneyFilter }}</td>
+                                        <td>{{order.createDate | formatDateFilter }}</td>
+                                        <td><span
+                                                class="label label-warning">{{order.status | orderStatusFilter}}</span>
+                                        </td>
+                                        <td>{{order.userMessage}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div th:replace="back/include/404_list::html('消费记录')"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

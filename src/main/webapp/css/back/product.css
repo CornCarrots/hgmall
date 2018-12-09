@@ -1,0 +1,88 @@
+/*产品*/
+.back_product_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+.back_product_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+}
+.back_product_list_table thead{
+    background: #b2dba1;
+    text-align: center;
+}
+.back_product_list_table thead tr th{
+    text-align: center;
+}
+.back_product_list_table tbody tr td{
+    text-align: left;
+    vertical-align: middle;
+}
+.back_product_add .panel{
+    width: 35%;
+    margin: 20px auto;
+}
+.back_product_add  #product_name{
+    width: 100%;
+    border: 1px solid #999999;
+}
+
+.back_product_add .addTable{
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin: 0 auto;
+    width: 60%;
+}
+/*属性值*/
+.back_propertyValue_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+.propertyValue_list{
+    /*width: 50%;*/
+    margin: 10px auto;
+}
+.back_propertyValue_list table{
+    /*padding: 10px;*/
+    width: 100%;
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+    /*text-align: center;*/
+}
+.back_propertyValue_list table td{
+    border: 0px;
+}
+/*图片*/
+.back_productImage_add{
+    width: 100%;
+    margin: 10px auto;
+}
+
+.back_productImage{
+    width: 100%;
+    margin: 10px auto;
+}
+.productImage_Single,.productImage_Detail{
+    width: 47%;
+    display: inline-block;
+    margin:10px 10px;
+}
+.productImage_Single table,.productImage_Detail table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.productImage_Single table thead,.productImage_Detail table thead{
+    background: #b2dba1;
+}
+.productImage_Single table thead tr th,.productImage_Detail table thead tr th{
+    text-align: center;
+}
+.productImage_Single table tbody tr td,.productImage_Detail table tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}

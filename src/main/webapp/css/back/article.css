@@ -1,0 +1,56 @@
+.back_article_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+.back_article_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.back_article_list_table thead{
+    background: #b2dba1;
+    text-align: center;
+}
+.back_article_list_table thead tr th{
+    text-align: center;
+}
+.back_article_list_table tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}
+.back_art_category_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+.back_art_category_list_table{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.back_art_category_list_table thead{
+    background: #b2dba1;
+    text-align: center;
+}
+.back_art_category_list_table thead tr th{
+    text-align: center;
+}
+.back_art_category_list_table tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}
+.messageReplyDIV table{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+.messageReplyDIV table tr td:first-child{
+    text-align: right;
+}
+textarea{
+    resize: none;
+}
+.addArticleModelDialog,.editArticleModelDialog{
+    width: 70%;
+    height: 100%;
+}

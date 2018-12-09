@@ -1,0 +1,67 @@
+.back_manager_list,.back_role_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+
+.back_manager_list_table,.back_role_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_manager_list_table thead,.back_role_list_table thead{
+    background: #edf1f6;
+    text-align: center;
+}
+.back_manager_list_table thead tr th,.back_role_list_table thead tr th{
+    text-align: center;
+}
+.back_manager_list_table tbody tr td,.back_role_list_table tbody tr td{
+    vertical-align: middle;
+}
+.addManager table{
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.addManager table tr td:first-child{
+    text-align: right;
+}
+.addRole table{
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.addRole table tr td:first-child{
+    text-align: right;
+}
+.back_person_list{
+    margin: 10px auto;
+}
+.back_person_list table{
+    width: 50%;
+    height: 400px;
+    /*padding: 10px;*/
+    border-collapse: separate;
+    border-spacing: 20px;
+    text-align: center;
+    table-layout: fixed;
+}
+.back_person_list table tr td:first-child{
+    text-align: right;
+    width: 20%;
+}
+.showTree{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width: 150px;
+}
+.imgDIV{
+    float: left;
+}
+.imgDIV p{
+    margin-top: 20px;
+    text-align: center;
+}

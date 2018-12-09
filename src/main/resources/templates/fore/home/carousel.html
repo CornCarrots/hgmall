@@ -1,0 +1,13 @@
+<div class="lunbo" th:fragment="html">
+    <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="1000">
+        <ol class="carousel-indicators">
+            <li data-target="homeCarousel" v-for="n,index in carousels.length" :data-slide-to="index" :class="{'active':index==0}"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="item" v-for="car,index in carousels" :class="{'active':index==0}">
+                <img :src="getCarousel(car.id)" :alt="'lunbo'+car.id">
+            </div>
+        </div>
+    </div>
+</div>

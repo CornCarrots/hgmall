@@ -1,0 +1,45 @@
+<div class="myCategory" th:fragment="html">
+    <div class="categoryPanel">
+        <div class="panel panel-success">
+            <div class="panel-heading"><b style="font-size: 15px">所有分类</b></div>
+            <div class="panel-body">
+                <ul>
+                    <li v-for="cat in categories"><a :href="getCategory(cat.id)"><i class="fa fa-angle-right"></i> {{cat.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="productPanel">
+        <div class="panel panel-info">
+            <div class="panel-heading"><b style="font-size: 15px">热卖商品</b></div>
+            <div class="panel-body">
+                <ul>
+                    <li v-for="product in hot">
+                        <div>
+                            <table>
+                                <tr>
+                                    <td rowspan="2">
+                                        <img :src="getImage('productSingle_middle',product.firstProductImage.id)" :alt="'product'+product.id">
+                                    </td>
+                                    <td>
+                                        <a :href="getProduct(product.id)" v-if="product.name.length>20">{{product.name | subStringFilter(0,20) }}</a>
+                                        <a :href="getProduct(product.id)" v-else>{{product.name}}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="item_price">￥{{product.promotePrice | formatMoneyFilter}}</span>
+                                        <span style="text-decoration: line-through">￥{{product.originalPrice | formatMoneyFilter}}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="advertisingPanel">
+        <img :src="getAdvertisement(advertisement.id)" alt="">
+    </div>
+</div>

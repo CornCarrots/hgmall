@@ -1,0 +1,57 @@
+<div th:fragment="html" class="container">
+    <div id="addModuleModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addModuleModel"
+         aria-hidden="true">
+        <div class="modal-dialog addModuleModelDialog">
+            <div class="modal-content addModuleModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加模块</h4>
+                </div>
+                <form id="addForm" onsubmit="return false;" @submit="addModule_">
+
+                    <div class="modal-body">
+                        <div class="addModule">
+                            <table>
+                                <tr>
+                                    <td>模块名称</td>
+                                    <td>
+                                        <input style="width: 220px;" type="text" placeholder="请输入模块名称"
+                                               class="form-control validate[required,maxSize[10]]" v-model="module.name">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>父节点</td>
+                                    <td>
+                                        <select id="addSelect" v-model="module.pid" class="validate[required]"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>模块描述</td>
+                                    <td>
+                                        <input style="width: 400px;" type="text" placeholder="请输入模块描述"
+                                               class="form-control validate[required]" v-model="module.desc">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>URL</td>
+                                    <td>
+                                        <input type="text" placeholder="请输入模块链接" class="form-control validate[required]"
+                                               v-model="module.url">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-success" type="submit">提交</button>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

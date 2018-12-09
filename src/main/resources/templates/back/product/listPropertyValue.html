@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="back/include/header::html('分类管理')"></head>
+<link rel="stylesheet" th:href="@{/css/include/tree/bootstrap-treeview.min.css}">
+<link rel="stylesheet" th:href="@{/css/back/product.css}">
+<body>
+<div th:replace="back/include/top::html"></div>
+<div th:replace="back/include/side::html"></div>
+<div class="container">
+    <div class="back_propertyValue_list">
+        <ol class="breadcrumb">
+            <li><a th:href="@{/admin}"><i class="fa fa-home">首页</i></a></li>
+            <li class="active">产品属性值</li>
+        </ol>
+        <div class="treeDIV">
+            <div>
+                <div id="treeview-checkable"></div>
+            </div>
+            <div>
+                <div class="propertyValue_list">
+                    <table>
+                        <tbody v-for="value,index in propertyValues">
+                        <tr>
+                            <td>
+                                <span>{{value.property.name}}</span>
+                            </td>
+                            <td>
+                                <input type="text"   class="form-control" :value="value.value" @change="updatePropertyValue($event,value.id,value.ptid,value.pid)">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div th:replace="back/include/404_list::html('属性')"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="back/include/footer::html"></div>
+<script th:src="@{/js/include/tree/bootstrap-treeview.min.js}"></script>
+<script th:src="@{/js/back/propertyValue.js}"></script>
+</body>

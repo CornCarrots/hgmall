@@ -1,0 +1,90 @@
+<div class="balanceOrder" th:fragment="html">
+    <p>确认订单信息</p>
+    <table class="balanceOrder_myorderTable1">
+        <thead>
+        <tr>
+            <th colspan="2" width="55%">商品详情</th>
+            <th width="8%">单价</th>
+            <th width="5%"> 数量</th>
+            <th width="7%"> 小计</th>
+            <th> 配送方式</th>
+        </tr>
+        </thead>
+    </table>
+    <div class="balanceOrder_myorder" v-for="store,i in stores">
+        <table class="balanceOrder_myorderTable3">
+            <td class="myorderTitle_store" colspan="2">
+                <span><i class="fa fa-tv"></i></span>
+                店铺：<a :href="getStore(store.id)">{{store.name}}</a>
+                <a href="#no" @click="sendMessage(store.id)"><i class="fa fa-envelope"></i></a>            </td>
+            <th colspan="4"></th>
+        </table>
+        <table class="balanceOrder_myorderTable2">
+            <tr v-for="orderItem,j in store.orderItems">
+                <td class="myorder_img">
+                    <img :src="getImage('productSingle_small',orderItem.product.firstProductImage.id)" alt="product">
+                </td>
+                <td class="myorder_name">
+                    <span class="myorder_name_title"><a :href="getProduct(orderItem.product.id)">{{orderItem.product.name}}</a></span>
+                    <span class="myorder_name_imgs">
+                        <i class="fa fa-credit-card" :class="store.authentication_credit==1?'hasAuthenticate':'notHasAuthenticate'" title="支持信用卡支付"></i>
+                        <i class="fa fa-id-card-o" :class="store.authentication_id==1?'hasAuthenticate':'notHasAuthenticate'" title="实名认证"></i>
+                        <i class="fa fa-tablet" :class="store.authentication_phone==1?'hasAuthenticate':'notHasAuthenticate'" title="七天退换"></i>
+                    </span>
+                </td>
+                <td class="myorder_price">
+                    ￥{{orderItem.product.promotePrice |formatMoneyFilter}}
+                </td>
+                <td class="myorder_number">
+                    {{orderItem.number}}
+                </td>
+                <td class="myorder_sum">
+                    ￥{{orderItem.product.promotePrice * orderItem.number |formatMoneyFilter}}
+                </td>
+                <td v-if="j==0" :rowspan="store.orderItems.length" class="myorder_style">
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" :id="'inlineRadio1_'+i" value="payment_online" v-model="orders[i].payment">
+                        <label :for="'inlineRadio1_'+i">在线支付</label>
+                    </div>
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" :id="'inlineRadio2_'+i" value="payment_delivery" v-model="orders[i].payment">
+                        <label :for="'inlineRadio2_'+i">发货后付款</label>
+                    </div>
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" :id="'inlineRadio3_'+i" value="payment_receiving" v-model="orders[i].payment">
+                        <label :for="'inlineRadio3_'+i">货到付款</label>
+                    </div>
+                    <br>
+                    <select class="selectpicker" :id="'select'+i" data-style="btn-success" tabindex="-98"
+                            v-model="orders[i].express">
+                        <option value="express_zhongtong">中通快递</option>
+                        <option value="express_yuantong">圆通快递</option>
+                        <option value="express_shunfeng">顺丰快递</option>
+                        <option value="express_yunda">韵达快递</option>
+                        <option value="express_tiantian">天天快递</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="balanceOrder_myinfo">
+            <span>给卖家留言：
+                <img th:src="@{/image/site/leaveMessage.png}" alt="leaveMessage" @click="addText($event)">
+                <textarea maxlength="200" v-model='orders[i].userMessage' cols="40" rows="5" class="leaveMessage"
+                          style="display: none;border: 1px solid #FFAD35"></textarea>
+                <p style='margin-left: 10px; font:normal 10px Arial;display: none;' class="leaveMessage">还可以输入{{200-orders[i].userMessage.length}}个字符</p>
+            </span>
+            <span class="balanceOrder_myinfoRight">店铺合计含运费：￥{{sumArray[i] |formatMoneyFilter}}</span>
+        </div>
+
+
+    </div>
+    <div class="balanceOrder_myprice pull-right">
+        <span>实付款：</span>
+        <span class="balanceOrder_myprice_price">￥{{sum |formatMoneyFilter}}</span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="balanceOrder_mysend pull-right">
+        <button type="submit">提交订单</button>
+    </div>
+    <div class="clearfix"></div>
+</div>

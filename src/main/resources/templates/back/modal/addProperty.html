@@ -1,0 +1,40 @@
+<div th:fragment="html" class="container">
+    <div id="addPropertyModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addPropertyModel"
+         aria-hidden="true">
+        <div class="modal-dialog addPropertyModelDialog">
+            <div class="modal-content addPropertyModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">添加属性</h4>
+                </div>
+                <form id="addForm" onsubmit="return false;" @submit="addProperty_">
+
+                    <div class="modal-body">
+                        <div class="back_property_add">
+                            <table class="addTable">
+                                <tr>
+                                    <td>属性名称：</td>
+                                    <td><input type="text" placeholder="请输入属性名称"
+                                               class="form-control validate[required,maxSize[10]]"
+                                               v-model="addProperty.name"></td>
+                                </tr>
+                                <tr>
+                                    <td>所属分类：</td>
+                                    <td>{{category.name}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button class="btn btn-default" type="submit">提交</button>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+</div>

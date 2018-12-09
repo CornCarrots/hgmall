@@ -1,0 +1,59 @@
+<div th:fragment="html" class="container">
+    <div id="exchangeModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exchangeModel"
+         aria-hidden="true">
+        <div class="modal-dialog exchangeModelDialog">
+            <div class="modal-content exchangeModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">售后处理</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="exchangeDiv">
+                        <table>
+                            <tr>
+                                <td>
+                                    请选择售后类型：
+                                </td>
+                                <td>
+                                    <div class="radio radio-danger radio-inline">
+                                        <input type="radio" id="inlineRadio1" value="type_waitRefund" v-model="status">
+                                        <label for="inlineRadio1">退款</label>
+                                    </div>
+                                    <div class="radio radio-danger radio-inline">
+                                        <input type="radio" id="inlineRadio2" value="type_waitRejected"
+                                               v-model="status">
+                                        <label for="inlineRadio2">退款退货</label>
+                                    </div>
+                                    <div class="radio radio-danger radio-inline">
+                                        <input type="radio" id="inlineRadio3" value="type_waitExchange"
+                                               v-model="status">
+                                        <label for="inlineRadio3">换货</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    请描述原因：
+                                </td>
+                                <td>
+                                    <textarea id="editor_id" name="content"
+                                              style="width:700px;height:300px;"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center">
+                                    <button class="btn btn-danger" style="width: 50%" @click="exchangeButton">提交
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

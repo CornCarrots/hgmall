@@ -1,0 +1,98 @@
+.back_user_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+
+.back_user_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_user_list_table thead{
+    background: #edf1f6;
+    text-align: center;
+}
+.back_user_list_table thead tr th{
+    text-align: center;
+}
+.back_user_list_table tbody tr td{
+    vertical-align: middle;
+}
+.userInfo_information,.userInfo_record {
+    width: 80%;
+    margin: 20px auto;
+
+}
+.userInfo_information img{
+    margin: 30px 10px;
+    width: 100px;
+}
+.userInfo_information table{
+    width: 80%;
+    margin-left: 10px;
+    border-spacing: 15px;
+    border-collapse: separate;
+    text-align: left;
+}
+.back_user_edit_table{
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+}
+.back_user_edit_table thead{
+    background: #edf1f6;
+    text-align: center;
+}
+.back_user_edit_table thead tr th{
+    text-align: center;
+}
+.back_user_edit_table tbody tr td{
+    vertical-align: middle;
+}
+.userInfoModelDialog{
+    width: 70%;
+
+}
+.userInfoModelContent{
+    height: 100%;
+}
+.back_power_list{
+    /*width: 95%;*/
+    margin: 10px auto;
+}
+.back_power_list_table{
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 80%;
+    margin: 0 auto;
+}
+.back_power_list_table thead{
+    background: #b2dba1;
+    text-align: center;
+}
+.back_power_list_table thead tr th{
+    text-align: center;
+}
+.back_power_list_table tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}
+.messageReplyDIV table{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+.messageReplyDIV table tr td:first-child{
+    text-align: right;
+}
+textarea{
+    resize: none;
+}
+.addPowerModelDialog,.editPowerModelDialog{
+    width: 70%;
+    height: 100%;
+}

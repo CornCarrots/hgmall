@@ -1,0 +1,36 @@
+<div th:fragment="html" class="container">
+    <div id="messageInfoModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="messageInfoModel"
+         aria-hidden="true">
+        <div class="modal-dialog messageInfoModelDialog">
+            <div class="modal-content messageInfoModelContent">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" style="text-align: center">留言信息</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="messageInfoTable">
+                        <tr>
+                            <td>留言用户</td>
+                            <td v-if="message.user!=null">{{message.user.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>留言内容</td>
+                            <td>
+                                <div class="messageInfoP">
+                                    <p>{{message.text}}</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">确定</button>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
