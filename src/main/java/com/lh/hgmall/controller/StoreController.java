@@ -82,7 +82,7 @@ public class StoreController {
                         "<BR>\n" +
                         "<div align='center'>\n" +
                         " <h3>恭喜您，申请成功！</h3>\n" +
-                        "    <h3>您的管理员账号为：<b>\"admin\"</b></h3>" +
+                        "    <h3>您的管理员账号为：<b>\"您申请的用户名\"</b></h3>" +
                         "<h3>您的管理员密码为：<b>身份证号码后六位</b></h3>\n"+
                         "<BR>\n" +
                         "<h4>\n" +

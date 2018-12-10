@@ -70,7 +70,7 @@ public class ManagerService {
     {
         ManagerService managerService = SpringContextUtils.getBean(ManagerService.class);
         Manager manager = new Manager();
-        manager.setName("admin");
+        manager.setName(store.getName());
         Map<String,Object> map = EncodeUtil.encode(store.getIdentification().substring(12,18));
         manager.setPassword(map.get("pass").toString());
         manager.setSalt(map.get("salt").toString());
