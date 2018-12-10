@@ -57,14 +57,18 @@ public class CategoryService {
         @Cacheable( keyGenerator = "wiselyKeyGenerator")
     public List<Category> listByTypeAndSidNot(String type, int sid) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        return categoryDAO.findAllByTypeAndSid(type, sid, sort);
+        return categoryDAO.findAllByTypeAndSidNot(type, sid, sort);
     }
 
     @Cacheable(keyGenerator = "wiselyKeyGenerator")
     public PageUtil<Category> listByTypeAndSid(int start, int size, int number, String type, int sid) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(start, size, sort);
-        Page page = categoryDAO.findAllByTypeAndSid(type, sid, pageable);
+        Page page = null;
+        if (sid==0)
+            page = categoryDAO.findAllByType(type, pageable);
+        else
+            page = categoryDAO.findAllByTypeAndSid(type, sid, pageable);
         page = new RestPageImpl(page.getContent(),pageable,page.getTotalElements());
         return new PageUtil<Category>(page, number);
     }

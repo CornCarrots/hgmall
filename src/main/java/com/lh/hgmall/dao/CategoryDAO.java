@@ -12,7 +12,9 @@ public interface CategoryDAO extends JpaRepository<Category,Integer> {
     public final static String type_product = "type_product";
     public final static String type_article = "type_article";
     List<Category> findAllByType(String type, Sort sort);
+    Page<Category> findAllByType(String type, Pageable pageable);
     Page<Category> findAllByTypeAndSid(String type,int sid, Pageable pageable);
     List<Category> findAllByTypeAndNameContainingAndSid(String type,String name,int sid,Sort sort);
     List<Category> findAllByTypeAndSid(String type,int sid,Sort sort);
+    List<Category> findAllByTypeAndSidNot(String type,int sid,Sort sort);
 }

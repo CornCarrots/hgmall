@@ -180,6 +180,7 @@ function checkDeleteLink(){
         return true;
     return false;
 }
+
 //分页跳转函数，向前跳或者向后跳，或者跳转到第一页或者最后一页。
 function jump(page,vue){
     if('first'== page && !vue.pages.first)

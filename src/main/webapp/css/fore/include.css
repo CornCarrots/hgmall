@@ -36,11 +36,11 @@ a:hover{
 div.search{
     position: relative;
 }
-div.search img{
+div.search .logoDIV{
     position: absolute;
     left: 50px;
     top:25px;
-    z-index: -1;
+
 }
 div.search .mysearch{
     background-color: #fa5555;

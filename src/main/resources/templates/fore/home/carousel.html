@@ -1,13 +1,25 @@
 <div class="lunbo" th:fragment="html">
-    <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="1000">
+    <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
         <ol class="carousel-indicators">
-            <li data-target="homeCarousel" v-for="n,index in carousels.length" :data-slide-to="index" :class="{'active':index==0}"></li>
+            <li v-for="car,index in carousels" data-target="#homeCarousel" :data-slide-to="index" :class="{'active':index==0}"></li>
         </ol>
         <!-- Carousel items -->
         <div class="carousel-inner">
-            <div class="item" v-for="car,index in carousels" :class="{'active':index==0}">
+            <div class="item" v-for="car,index in carousels" :class="{'active':index==0}" :id="'carousel'+car.id">
                 <img :src="getCarousel(car.id)" :alt="'lunbo'+car.id">
             </div>
         </div>
+        <!--&lt;!&ndash; Carousel nav &ndash;&gt;-->
+        <!--<a class="carousel-control left" href="#homeCarousel" data-slide="prev">&lsaquo;</a>-->
+        <!--<a class="carousel-control right" href="#homeCarousel" data-slide="next">&rsaquo;</a>-->
+        <!-- Controls -->
+        <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>

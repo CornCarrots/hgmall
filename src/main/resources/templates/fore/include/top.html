@@ -38,12 +38,13 @@
         </span>
         <div class="clearfix"></div>
         <div class="search">
-            <a th:href="@{/home}"><img th:src="@{/image/site/logo.png}" alt="logo"></a>
+            <a th:href="@{/home}" class="logoDIV"><img th:src="@{/image/site/logo.png}" alt="logo"></a>
             <div class="mysearch">
                 <div class="input-group">
                     <div class="dropdown bootstrap-select input-group-btn">
                         <select class="selectpicker" data-style="btn-default" tabindex="-98" id="categorySelect">
-                            <option th:each="cat:${application.categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                            <option th:each="cat:${application.categories}" th:value="${cat.id}"
+                                    th:text="${cat.name}"></option>
                         </select>
                     </div>
                     <input class="form-control" type="text" placeholder="搜索你想要的商品" name="keyword" id="keyword">
@@ -55,8 +56,12 @@
                 </div>
                 <div class="searchBelow">
             <span th:each="cat,status:${application.categories_below}">
-                   <span class="searchSpan" th:text="${cat.name}"></span>
+                    <a  th:id="'cat_below_'+${cat.id}"> <span class="searchSpan" th:text="${cat.name}"></span></a>
                     <span class="searchSpan" th:if="${status.index!=((status.size)-1)}">|</span>
+                <script th:inline="javascript">
+                     var param = window.btoa("cid="+[[${cat.id}]]+"&timeStamp="+new Date().getTime());
+                     $("#cat_below_"+[[${cat.id}]]).attr("href",getPath()+"/category?"+param);
+                </script>
             </span>
 
                 </div>
@@ -64,7 +69,8 @@
             <div>
                 <a th:href="@{/account}"><span class="graySpan"><i class="fa fa-user fa-2x"></i><p>个人中心</p></span></a>
                 <a th:href="@{/orderList}"><span><i class="fa fa-history fa-2x"></i><p>订单历史</p></span></a>
-                <a th:href="@{/shoppingcart}"><span><i class="fa fa-shopping-bag fa-2x"></i><i id="shoppingNumber" th:text="${session.shoppingCart}"></i><p>购物车</p></span></a>
+                <a th:href="@{/shoppingcart}"><span><i class="fa fa-shopping-bag fa-2x"></i><i id="shoppingNumber"
+                                                                                               th:text="${session.shoppingCart}"></i><p>购物车</p></span></a>
             </div>
         </div>
     </nav>
