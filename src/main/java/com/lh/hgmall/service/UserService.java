@@ -61,6 +61,7 @@ public class UserService {
     {
         Pageable pageable = new PageRequest(start,size,sort);
         Page<User> page = userDAO.findAllByMidNot(mid,pageable);
+        page = new RestPageImpl(page.getContent(),pageable,page.getTotalElements());
         return new PageUtil<>(page,number);
     }
 

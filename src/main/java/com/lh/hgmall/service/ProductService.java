@@ -5,6 +5,7 @@ import com.lh.hgmall.dao.CategoryDAO;
 import com.lh.hgmall.dao.ProductDAO;
 import com.lh.hgmall.dao.ProductImageDAO;
 import com.lh.hgmall.util.PageUtil;
+import com.lh.hgmall.util.RestPageImpl;
 import com.lh.hgmall.util.SpringContextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -83,6 +84,7 @@ public class ProductService {
         Sort sort = new Sort(Sort.Direction.DESC,"id");
         Pageable pageable = new PageRequest(start,size,sort);
         Page<Product> page = productDAO.findAllByCidAndStatus(cid,status,pageable);
+        page = new RestPageImpl(page.getContent(),pageable,page.getTotalElements());
         return new PageUtil<>(page,number);
     }
 
