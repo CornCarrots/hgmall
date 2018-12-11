@@ -25,6 +25,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo -->
         <!--<dependency>-->
             <!--<groupId>com.esotericsoftware</groupId>-->
