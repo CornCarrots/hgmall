@@ -3,13 +3,14 @@ package com.lh.hgmall.bean;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "module")
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
-public class Module {
+public class Module implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

@@ -11,10 +11,12 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringBootApplication
 @ServletComponentScan
 @EnableCaching
+@EnableRedisHttpSession
 public class HgmallApplication extends SpringBootServletInitializer {
 
     static {

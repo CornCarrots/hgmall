@@ -3,12 +3,13 @@ package com.lh.hgmall.bean;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "role_permission")
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
-public class RolePermission {
+public class RolePermission implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
