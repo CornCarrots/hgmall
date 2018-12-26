@@ -44,8 +44,10 @@ public class CategoryController {
     }
 
     @PostMapping(value = "/admin/categories")
-    public String add(MultipartFile image,Category category, HttpServletRequest request) throws Exception
+    public String add(MultipartFile image,Category category, HttpServletRequest request,HttpSession session) throws Exception
     {
+        Manager manager = (Manager) session.getAttribute("manager");
+        category.setSid(manager.getSid());
         categoryService.add(category);
         if(image!=null)
         {
