@@ -192,7 +192,8 @@ public class ProductService {
         else
         {
             categories = categoryService.listByTypeAndSid(CategoryDAO.type_product,sid);
-            categories.add(categoryService.get(sid));
+            Store store = storeService.get(sid);
+            categories.add(categoryService.get(store.getCid()));
         }
         categoryService.fillProduct(categories);
         categoryService.fillStore(categories);
