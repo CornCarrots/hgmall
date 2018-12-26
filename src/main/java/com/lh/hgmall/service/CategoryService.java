@@ -255,7 +255,8 @@ public class CategoryService {
             categories = categoryService.listByType(CategoryDAO.type_product);
         else {
             categories = categoryService.listByTypeAndSid(CategoryDAO.type_product, sid);
-            categories.add(get(sid));
+            Store store = storeService.get(sid);
+            categories.add(get(store.getCid()));
         }
 //        System.out.println(categories);
         int i = 0;
